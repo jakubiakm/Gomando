@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Gomando.Model.Models;
@@ -36,4 +37,3 @@ namespace Gomando.Repository.DataAccessLayer
         }
     }
 }
-

@@ -42,8 +42,9 @@ namespace Gomando.Adapters
         {
             TrainingHistoryHolder trainingHistoryHolder = holder as TrainingHistoryHolder;
 
-            trainingHistoryHolder.Time.Text = trainings[position].Time.ToString();
-            trainingHistoryHolder.Distance.Text = trainings[position].Distance.ToString();
+            trainingHistoryHolder.Date.Text = $"{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
+            trainingHistoryHolder.Time.Text =  $"Czas: {trainings[position].Time.ToString()} sekund";
+            trainingHistoryHolder.Distance.Text = $"Dystans: {trainings[position].Distance.ToString()} kilometrów";
         }
 
         // Return the number of photos available in the photo album:

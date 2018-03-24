@@ -17,10 +17,12 @@ namespace Gomando.Adapters
     {
         public TextView Distance { get; private set; }
         public TextView Time { get; private set; }
+        public TextView Date { get; private set; }
 
         // Get references to the views defined in the CardView layout.
         public TrainingHistoryHolder(View itemView, Action<int> listener) : base(itemView)
         {
+            Date = itemView.FindViewById<TextView>(Resource.Id.trainingHistoryDateTextView);
             Distance = itemView.FindViewById<TextView>(Resource.Id.trainingHistoryDistanceTextView);
             Time = itemView.FindViewById<TextView>(Resource.Id.trainingHistoryTimeTextView);
 

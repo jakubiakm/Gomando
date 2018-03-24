@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="history_list_view_swipe_item_background_color">#FF5534</color>
+  <color name="history_list_view_item_background_color">#666666</color>
+  <color name="sliding_drawer_training_background_color">#86000000</color>
+
+
+  <color name="backgroundColor">#E8E8E0</color>
+  <color name="textColor">#FFFFFF</color>
+  <color name="backgroundColorPress">#DBDBD3</color>
+  <color name="red">#FF3B00</color>
+  <color name="red_press">#990000</color>
+  <color name="dark_gray">#4C535B</color>
+  <color name="dark_gray_press">#ff7e8a97</color>
+  <color name="primary">#2196F3</color>
+  <color name="primaryDark">#1976D2</color>
+  <color name="accent">#FFC107</color>
+  <color name="window_background">#F5F5F5</color>
+</resources>

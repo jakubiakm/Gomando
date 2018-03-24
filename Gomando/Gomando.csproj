@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\TrainingActivity.cs" />
+    <Compile Include="Activities\TrainingDetailsActivity.cs" />
     <Compile Include="Activities\TrainingHistoryActivity.cs" />
     <Compile Include="Adapters\TrainingHistoryAdapter.cs" />
     <Compile Include="Adapters\TrainingHistoryHolder.cs" />
@@ -139,7 +140,7 @@
     <AndroidResource Include="Resources\layout\navigation_drawer_base_layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -164,6 +165,12 @@
       <Project>{ff2ce64d-6391-4129-8fab-0e67e6939cf5}</Project>
       <Name>Gomando.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_training_type_running.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
