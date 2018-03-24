@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/menu_navigation_training"
+      android:title="Trening"/>
+    <item
+      android:id="@+id/menu_navigation_training_history"
+      android:title="Historia treningów"/>
+    <item
+      android:id="@+id/menu_navigation_settings"
+      android:title="Ustawienia"/>
+    <item
+      android:id="@+id/menu_navigation_profile"
+      android:title="Profil użytkownika"/>
+  </group>
+</menu>
