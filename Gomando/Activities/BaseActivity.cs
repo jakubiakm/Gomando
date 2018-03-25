@@ -26,7 +26,6 @@ namespace Gomando.Activities
         }
         private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
-
             e.MenuItem.SetChecked(true);
             switch (e.MenuItem.ItemId)
             {

@@ -25,6 +25,7 @@ namespace Gomando.Activities
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         TrainingHistoryAdapter mAdapter;
+        Button mButtonAddManualTraining;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,6 +37,8 @@ namespace Gomando.Activities
 
             List<Training> trainings = trainingHistoryLogic.GetAllTrainings();
 
+            mButtonAddManualTraining = FindViewById<Button>(Resource.Id.trainingHistoryAddManualTrainingButton);
+            mButtonAddManualTraining.Click += MButtonAddManualTraining_Click;
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.trainingHistoryRecyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
@@ -44,13 +47,25 @@ namespace Gomando.Activities
             mRecyclerView.SetAdapter(mAdapter);
         }
 
+        private void MButtonAddManualTraining_Click(object sender, EventArgs e)
+        {
+            var addManualTraining = new Intent(this, typeof(AddManualTrainingActivity));
+            StartActivityForResult(addManualTraining, 0);
+        }
+
         // Handler for the item click event:
         void OnItemClick(object sender, int position)
         {
-            // Display a toast that briefly shows the enumeration of the selected photo:
             int photoNum = position + 1;
-            Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
-            mAdapter.trainings.Add(new Training() {  Time = (new Random()).Next()});
+            var trainingDetails = new Intent(this, typeof(TrainingDetailsActivity));
+            trainingDetails.PutExtra("TrainingId", mAdapter.trainings[position].Id);
+            StartActivityForResult(trainingDetails, 0);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            mAdapter.trainings = trainingHistoryLogic.GetAllTrainings();
             mAdapter.NotifyDataSetChanged();
         }
     }

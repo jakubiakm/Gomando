@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <TextView
+      android:text="Dystans"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView1" />
+  <EditText
+      android:inputType="numberDecimal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/trainingDetailsDistanceEditText" />
+  <TextView
+      android:text="Czas"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView2" />
+  <EditText
+      android:inputType="numberDecimal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/trainingDetailsTimeEditText" />
+    <Button
+        android:text="Edytuj trening"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/trainingDetailsEditTrainingButton" />
+    <Button
+       android:text="Usuń trening"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/trainingDetailsDeleteTrainingButton" />
+</LinearLayout>

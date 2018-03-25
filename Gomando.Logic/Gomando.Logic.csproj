@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddManualTrainingLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainingDetailsLogic.cs" />
     <Compile Include="TrainingHistoryLogic.cs" />
   </ItemGroup>
   <ItemGroup>

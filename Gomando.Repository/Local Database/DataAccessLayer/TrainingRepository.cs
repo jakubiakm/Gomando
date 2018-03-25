@@ -18,7 +18,8 @@ namespace Gomando.Repository.DataAccessLayer
 
         public Training GetTraining(int id)
         {
-            return db.GetItem<Training>(id);
+            return GetTrainings().FirstOrDefault(training => training.Id == id);
+            //return db.GetItem<Training>(id);
         }
 
         public List<Training> GetTrainings()
