@@ -112,7 +112,6 @@
   <ItemGroup>
     <Compile Include="Activities\AddManualTrainingActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
-    <Compile Include="Activities\SettingsPreferenceFragment.cs" />
     <Compile Include="Activities\TrainingActivity.cs" />
     <Compile Include="Activities\TrainingDetailsActivity.cs" />
     <Compile Include="Activities\TrainingHistoryActivity.cs" />
@@ -143,7 +142,10 @@
     <AndroidResource Include="Resources\layout\training_details_layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\training_history_preference.axml">
+    <AndroidResource Include="Resources\layout\toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\actions_menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

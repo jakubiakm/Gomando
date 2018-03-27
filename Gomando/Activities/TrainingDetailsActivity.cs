@@ -40,6 +40,8 @@ namespace Gomando.Activities
             EditTrainingButton = FindViewById<Button>(Resource.Id.trainingDetailsEditTrainingButton);
             DeleteTrainingButton = FindViewById<Button>(Resource.Id.trainingDetailsDeleteTrainingButton);
 
+
+
             int trainingId = Intent.GetIntExtra("TrainingId", 0);
             Training = trainingDetailsLogic.GetTraining(trainingId);
 

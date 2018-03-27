@@ -27,6 +27,26 @@ namespace Gomando.Activities
         TrainingHistoryAdapter mAdapter;
         Button mButtonAddManualTraining;
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_preferences:
+
+                    Toast.MakeText(this, "no wreszcie", ToastLength.Long).Show();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.actions_menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
