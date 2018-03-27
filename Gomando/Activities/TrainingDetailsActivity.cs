@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -60,8 +61,14 @@ namespace Gomando.Activities
 
         private void EditTrainingButton_Click(object sender, EventArgs e)
         {
-            Training.Distance = double.Parse(DistanceTextView.Text);
-            Training.Time = double.Parse(TimeTextView.Text);
+            double distance, time;
+            if (string.IsNullOrWhiteSpace(DistanceTextView.Text) || string.IsNullOrWhiteSpace(TimeTextView.Text))
+                return;
+            if (!double.TryParse(DistanceTextView.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out distance) || !double.TryParse(TimeTextView.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out time))
+                return;
+
+            Training.Distance = distance;
+            Training.Time = time;
             trainingDetailsLogic.EditTraining(Training);
             Finish();
         }

@@ -8,26 +8,35 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:layout_marginLeft="4dp"/>
     <EditText
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addManualTrainingDistanceEditText" />
+        android:id="@+id/addManualTrainingDistanceEditText"
+        android:layout_marginLeft="4dp"/>
     <TextView
         android:text="Czas treningu"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:layout_marginLeft="4dp"/>
     <EditText
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/addManualTrainingTimeEditText" />
+        android:id="@+id/addManualTrainingTimeEditText"
+        android:layout_marginLeft="4dp"/>
     <Button
         android:text="Zapisz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_button_add"
+        android:background="@color/add_training_button_color"
+        android:gravity="left|center_vertical"
         android:id="@+id/addManualTrainingAddTrainingButton" />
 </LinearLayout>

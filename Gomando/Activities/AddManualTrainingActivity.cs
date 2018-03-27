@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -51,15 +52,15 @@ namespace Gomando.Activities
 
         private Training GetTraining()
         {
-            double result;
+            double distance, time;
             if (string.IsNullOrWhiteSpace(DistanceTextView.Text) || string.IsNullOrWhiteSpace(TimeTextView.Text))
                 return null;
-            if (!double.TryParse(DistanceTextView.Text, out result) || !double.TryParse(TimeTextView.Text, out result))
+            if (!double.TryParse(DistanceTextView.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out distance) || !double.TryParse(TimeTextView.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out time))
                 return null;
             Training training = new Training()
             {
-                Distance = double.Parse(DistanceTextView.Text),
-                Time = double.Parse(TimeTextView.Text),
+                Distance = distance,
+                Time = time,
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddMinutes(55)
             };

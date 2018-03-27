@@ -5,4 +5,8 @@
     <item name="android:windowActionBar">false</item>
     <item name="android:colorPrimary">#5A8622</item>
   </style>
+  <style name="ToolbarTheme" parent="android:style/ThemeOverlay.Material.Dark.ActionBar">
+    <item name="android:colorPrimary">#5A8622</item>
+  </style>
+
 </resources>

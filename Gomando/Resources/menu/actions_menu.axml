@@ -4,5 +4,6 @@
  xmlns:myapp="http://schemas.android.com/apk/res-auto">
   <item android:id="@+id/action_preferences"
   android:title="Preferencje"
+  android:icon="@drawable/ic_settings"
   myapp:showAsAction="always" />
 </menu>
