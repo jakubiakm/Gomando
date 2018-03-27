@@ -14,6 +14,8 @@ using Android.Support.V7.Widget;
 using Gomando.Model.Models;
 using Gomando.Logic;
 using Gomando.Adapters;
+using Gomando.Fragments;
+using Android.Preferences;
 
 namespace Gomando.Activities
 {
@@ -27,13 +29,22 @@ namespace Gomando.Activities
         TrainingHistoryAdapter mAdapter;
         Button mButtonAddManualTraining;
 
+        bool SortDescending = false;
+        bool ShowKilometerDistanceUnit = false;
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
                 case Resource.Id.action_preferences:
-
-                    Toast.MakeText(this, "no wreszcie", ToastLength.Long).Show();
+                    //FragmentTransaction transcation = FragmentManager.BeginTransaction();
+                    //Dialogclass signup = new Dialogclass();
+                    //signup.Show(transcation, "Dialog Fragment");
+                    PreferenceFragment pref = new PrefsFragment(this);
+                    FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                    transaction.Add(Android.Resource.Id.Content, pref, "preferences");
+                    transaction.AddToBackStack(null);
+                    transaction.Commit();
                     return true;
 
                 default:
@@ -47,9 +58,18 @@ namespace Gomando.Activities
             return base.OnCreateOptionsMenu(menu);
         }
 
+        void GetUserPreferences()
+        {
+            var SP = PreferenceManager.GetDefaultSharedPreferences(this);
+            ShowKilometerDistanceUnit = SP.GetBoolean("kilometer_preference", true);
+            SortDescending = SP.GetBoolean("sort_preference", true);
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            GetUserPreferences();
 
             LayoutInflater inflater = (LayoutInflater)this.GetSystemService(Context.LayoutInflaterService);
             View contentView = inflater.Inflate(Resource.Layout.training_history_layout, null, false);
@@ -57,12 +77,13 @@ namespace Gomando.Activities
 
             List<Training> trainings = trainingHistoryLogic.GetAllTrainings();
 
+
             mButtonAddManualTraining = FindViewById<Button>(Resource.Id.trainingHistoryAddManualTrainingButton);
             mButtonAddManualTraining.Click += MButtonAddManualTraining_Click;
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.trainingHistoryRecyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-            mAdapter = new TrainingHistoryAdapter(trainings);
+            mAdapter = new TrainingHistoryAdapter(trainings, ShowKilometerDistanceUnit, SortDescending);
             mAdapter.ItemClick += OnItemClick;
             mRecyclerView.SetAdapter(mAdapter);
         }
@@ -85,8 +106,19 @@ namespace Gomando.Activities
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            mAdapter.trainings = trainingHistoryLogic.GetAllTrainings();
-            mAdapter.NotifyDataSetChanged();
+            RefreshAdapter();
+        }
+
+        public void RefreshAdapter()
+        {
+            GetUserPreferences();
+            List<Training> trainings = trainingHistoryLogic.GetAllTrainings();
+            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.trainingHistoryRecyclerView);
+            mLayoutManager = new LinearLayoutManager(this);
+            mRecyclerView.SetLayoutManager(mLayoutManager);
+            mAdapter = new TrainingHistoryAdapter(trainings, ShowKilometerDistanceUnit, SortDescending);
+            mAdapter.ItemClick += OnItemClick;
+            mRecyclerView.SetAdapter(mAdapter);
         }
     }
 }

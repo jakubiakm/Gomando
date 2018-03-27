@@ -21,9 +21,20 @@ namespace Gomando.Adapters
 
         public List<Training> trainings;
 
-        public TrainingHistoryAdapter(List<Training> trainings)
+        bool ShowKilometerDistanceUnit;
+
+        public TrainingHistoryAdapter(List<Training> trainings, bool showKilometerDistanceUnit, bool SortDescending)
         {
             this.trainings = trainings;
+            if (SortDescending)
+            {
+                this.trainings = trainings.OrderByDescending(t => t.StartDate).ToList();
+            }
+            else
+            {
+                this.trainings = trainings.OrderBy(t => t.StartDate).ToList();
+            }
+            ShowKilometerDistanceUnit = showKilometerDistanceUnit;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -41,10 +52,15 @@ namespace Gomando.Adapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             TrainingHistoryHolder trainingHistoryHolder = holder as TrainingHistoryHolder;
+            string distanceText = "";
+            if (ShowKilometerDistanceUnit)
+                distanceText = $"Dystans: {trainings[position].Distance.ToString()} kilometrów";
+            else
+                distanceText = $"Dystans: {(trainings[position].Distance * 0.62).ToString()} mil";
 
             trainingHistoryHolder.Date.Text = $"{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
-            trainingHistoryHolder.Time.Text =  $"Czas: {trainings[position].Time.ToString()} sekund";
-            trainingHistoryHolder.Distance.Text = $"Dystans: {trainings[position].Distance.ToString()} kilometrów";
+            trainingHistoryHolder.Time.Text = $"Czas: {trainings[position].Time.ToString()} sekund";
+            trainingHistoryHolder.Distance.Text = distanceText;
         }
 
         // Return the number of photos available in the photo album:
