@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 
@@ -21,8 +22,8 @@ namespace Gomando.Activities
     {
         TrainingDetailsLogic trainingDetailsLogic = new TrainingDetailsLogic();
 
-        public Button EditTrainingButton { get; private set; }
-        public Button DeleteTrainingButton { get; private set; }
+        public FloatingActionButton EditTrainingButton { get; private set; }
+        public FloatingActionButton DeleteTrainingButton { get; private set; }
         public TextView DistanceTextView { get; private set; }
         public TextView TimeTextView { get; private set; }
 
@@ -38,8 +39,8 @@ namespace Gomando.Activities
 
             DistanceTextView = FindViewById<EditText>(Resource.Id.trainingDetailsDistanceEditText);
             TimeTextView = FindViewById<EditText>(Resource.Id.trainingDetailsTimeEditText);
-            EditTrainingButton = FindViewById<Button>(Resource.Id.trainingDetailsEditTrainingButton);
-            DeleteTrainingButton = FindViewById<Button>(Resource.Id.trainingDetailsDeleteTrainingButton);
+            EditTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsEditTrainingButton);
+            DeleteTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsDeleteTrainingButton);
 
 
 

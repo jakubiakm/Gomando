@@ -3,10 +3,14 @@
   <style name="MyTheme" parent="Theme.AppCompat.NoActionBar">
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowActionBar">false</item>
-    <item name="android:colorPrimary">#5A8622</item>
+    <item name="android:colorPrimary">#FFFFFF</item>
+    <item name="android:listDivider">@color/application_navigation_drawer_menu_text_color</item>
   </style>
   <style name="ToolbarTheme" parent="android:style/ThemeOverlay.Material.Dark.ActionBar">
-    <item name="android:colorPrimary">#5A8622</item>
+    <item name="android:colorPrimary">#FFFFFF</item>
+    <item name="android:listDivider">@color/application_navigation_drawer_menu_text_color</item>
   </style>
+
+
 
 </resources>

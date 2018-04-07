@@ -16,6 +16,7 @@ using Gomando.Logic;
 using Gomando.Adapters;
 using Gomando.Fragments;
 using Android.Preferences;
+using Android.Support.Design.Widget;
 
 namespace Gomando.Activities
 {
@@ -27,7 +28,7 @@ namespace Gomando.Activities
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         TrainingHistoryAdapter mAdapter;
-        Button mButtonAddManualTraining;
+        FloatingActionButton mButtonAddManualTraining;
 
         bool SortDescending = false;
         bool ShowKilometerDistanceUnit = false;
@@ -78,7 +79,7 @@ namespace Gomando.Activities
             List<Training> trainings = trainingHistoryLogic.GetAllTrainings();
 
 
-            mButtonAddManualTraining = FindViewById<Button>(Resource.Id.trainingHistoryAddManualTrainingButton);
+            mButtonAddManualTraining = FindViewById<FloatingActionButton>(Resource.Id.trainingHistoryAddManualTrainingButton);
             mButtonAddManualTraining.Click += MButtonAddManualTraining_Click;
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.trainingHistoryRecyclerView);
             mLayoutManager = new LinearLayoutManager(this);

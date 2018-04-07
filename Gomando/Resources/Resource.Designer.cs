@@ -1102,35 +1102,35 @@ namespace Gomando
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f080051
-			public const int abc_background_cache_hint_selector_material_dark = 2131230801;
+			// aapt resource value: 0x7f080055
+			public const int abc_background_cache_hint_selector_material_dark = 2131230805;
 			
-			// aapt resource value: 0x7f080052
-			public const int abc_background_cache_hint_selector_material_light = 2131230802;
+			// aapt resource value: 0x7f080056
+			public const int abc_background_cache_hint_selector_material_light = 2131230806;
 			
-			// aapt resource value: 0x7f080053
-			public const int abc_btn_colored_borderless_text_material = 2131230803;
+			// aapt resource value: 0x7f080057
+			public const int abc_btn_colored_borderless_text_material = 2131230807;
 			
-			// aapt resource value: 0x7f080054
-			public const int abc_color_highlight_material = 2131230804;
+			// aapt resource value: 0x7f080058
+			public const int abc_color_highlight_material = 2131230808;
 			
 			// aapt resource value: 0x7f080004
 			public const int abc_input_method_navigation_guard = 2131230724;
 			
-			// aapt resource value: 0x7f080055
-			public const int abc_primary_text_disable_only_material_dark = 2131230805;
-			
-			// aapt resource value: 0x7f080056
-			public const int abc_primary_text_disable_only_material_light = 2131230806;
-			
-			// aapt resource value: 0x7f080057
-			public const int abc_primary_text_material_dark = 2131230807;
-			
-			// aapt resource value: 0x7f080058
-			public const int abc_primary_text_material_light = 2131230808;
-			
 			// aapt resource value: 0x7f080059
-			public const int abc_search_url_text = 2131230809;
+			public const int abc_primary_text_disable_only_material_dark = 2131230809;
+			
+			// aapt resource value: 0x7f08005a
+			public const int abc_primary_text_disable_only_material_light = 2131230810;
+			
+			// aapt resource value: 0x7f08005b
+			public const int abc_primary_text_material_dark = 2131230811;
+			
+			// aapt resource value: 0x7f08005c
+			public const int abc_primary_text_material_light = 2131230812;
+			
+			// aapt resource value: 0x7f08005d
+			public const int abc_search_url_text = 2131230813;
 			
 			// aapt resource value: 0x7f080005
 			public const int abc_search_url_text_normal = 2131230725;
@@ -1141,32 +1141,32 @@ namespace Gomando
 			// aapt resource value: 0x7f080007
 			public const int abc_search_url_text_selected = 2131230727;
 			
-			// aapt resource value: 0x7f08005a
-			public const int abc_secondary_text_material_dark = 2131230810;
-			
-			// aapt resource value: 0x7f08005b
-			public const int abc_secondary_text_material_light = 2131230811;
-			
-			// aapt resource value: 0x7f08005c
-			public const int abc_tint_btn_checkable = 2131230812;
-			
-			// aapt resource value: 0x7f08005d
-			public const int abc_tint_default = 2131230813;
-			
 			// aapt resource value: 0x7f08005e
-			public const int abc_tint_edittext = 2131230814;
+			public const int abc_secondary_text_material_dark = 2131230814;
 			
 			// aapt resource value: 0x7f08005f
-			public const int abc_tint_seek_thumb = 2131230815;
+			public const int abc_secondary_text_material_light = 2131230815;
 			
 			// aapt resource value: 0x7f080060
-			public const int abc_tint_spinner = 2131230816;
+			public const int abc_tint_btn_checkable = 2131230816;
 			
 			// aapt resource value: 0x7f080061
-			public const int abc_tint_switch_thumb = 2131230817;
+			public const int abc_tint_default = 2131230817;
 			
 			// aapt resource value: 0x7f080062
-			public const int abc_tint_switch_track = 2131230818;
+			public const int abc_tint_edittext = 2131230818;
+			
+			// aapt resource value: 0x7f080063
+			public const int abc_tint_seek_thumb = 2131230819;
+			
+			// aapt resource value: 0x7f080064
+			public const int abc_tint_spinner = 2131230820;
+			
+			// aapt resource value: 0x7f080065
+			public const int abc_tint_switch_thumb = 2131230821;
+			
+			// aapt resource value: 0x7f080066
+			public const int abc_tint_switch_track = 2131230822;
 			
 			// aapt resource value: 0x7f080008
 			public const int accent_material_dark = 2131230728;
@@ -1174,20 +1174,26 @@ namespace Gomando
 			// aapt resource value: 0x7f080009
 			public const int accent_material_light = 2131230729;
 			
-			// aapt resource value: 0x7f080048
-			public const int add_training_button_color = 2131230792;
+			// aapt resource value: 0x7f080053
+			public const int add_training_button_color = 2131230803;
 			
-			// aapt resource value: 0x7f08004d
-			public const int application_background_color = 2131230797;
-			
-			// aapt resource value: 0x7f08004f
-			public const int application_navigation_drawer_color = 2131230799;
-			
-			// aapt resource value: 0x7f080050
-			public const int application_navigation_drawer_header_color = 2131230800;
+			// aapt resource value: 0x7f08004b
+			public const int application_background_color = 2131230795;
 			
 			// aapt resource value: 0x7f08004e
-			public const int application_toolbar_background_color = 2131230798;
+			public const int application_navigation_drawer_color = 2131230798;
+			
+			// aapt resource value: 0x7f08004f
+			public const int application_navigation_drawer_header_color = 2131230799;
+			
+			// aapt resource value: 0x7f080050
+			public const int application_navigation_drawer_header_text_view_color = 2131230800;
+			
+			// aapt resource value: 0x7f080051
+			public const int application_navigation_drawer_menu_text_color = 2131230801;
+			
+			// aapt resource value: 0x7f080052
+			public const int application_toolbar_background_color = 2131230802;
 			
 			// aapt resource value: 0x7f08000a
 			public const int background_floating_material_dark = 2131230730;
@@ -1237,11 +1243,11 @@ namespace Gomando
 			// aapt resource value: 0x7f080003
 			public const int cardview_shadow_start_color = 2131230723;
 			
-			// aapt resource value: 0x7f08004a
-			public const int delete_training_button_color = 2131230794;
+			// aapt resource value: 0x7f080048
+			public const int delete_training_button_color = 2131230792;
 			
-			// aapt resource value: 0x7f080063
-			public const int design_error = 2131230819;
+			// aapt resource value: 0x7f080067
+			public const int design_error = 2131230823;
 			
 			// aapt resource value: 0x7f08003e
 			public const int design_fab_shadow_end_color = 2131230782;
@@ -1273,8 +1279,8 @@ namespace Gomando
 			// aapt resource value: 0x7f080047
 			public const int design_textinput_error_color_light = 2131230791;
 			
-			// aapt resource value: 0x7f080064
-			public const int design_tint_password_toggle = 2131230820;
+			// aapt resource value: 0x7f080068
+			public const int design_tint_password_toggle = 2131230824;
 			
 			// aapt resource value: 0x7f080016
 			public const int dim_foreground_disabled_material_dark = 2131230742;
@@ -1288,11 +1294,11 @@ namespace Gomando
 			// aapt resource value: 0x7f080019
 			public const int dim_foreground_material_light = 2131230745;
 			
-			// aapt resource value: 0x7f08004c
-			public const int edit_training_button_color = 2131230796;
+			// aapt resource value: 0x7f08004a
+			public const int edit_training_button_color = 2131230794;
 			
-			// aapt resource value: 0x7f08004b
-			public const int edit_training_button_text_color = 2131230795;
+			// aapt resource value: 0x7f080049
+			public const int edit_training_button_text_color = 2131230793;
 			
 			// aapt resource value: 0x7f08001a
 			public const int foreground_material_dark = 2131230746;
@@ -1378,6 +1384,9 @@ namespace Gomando
 			// aapt resource value: 0x7f080035
 			public const int ripple_material_light = 2131230773;
 			
+			// aapt resource value: 0x7f080054
+			public const int save_training_button_color = 2131230804;
+			
 			// aapt resource value: 0x7f080036
 			public const int secondary_text_default_material_dark = 2131230774;
 			
@@ -1396,11 +1405,11 @@ namespace Gomando
 			// aapt resource value: 0x7f08003b
 			public const int switch_thumb_disabled_material_light = 2131230779;
 			
-			// aapt resource value: 0x7f080065
-			public const int switch_thumb_material_dark = 2131230821;
+			// aapt resource value: 0x7f080069
+			public const int switch_thumb_material_dark = 2131230825;
 			
-			// aapt resource value: 0x7f080066
-			public const int switch_thumb_material_light = 2131230822;
+			// aapt resource value: 0x7f08006a
+			public const int switch_thumb_material_light = 2131230826;
 			
 			// aapt resource value: 0x7f08003c
 			public const int switch_thumb_normal_material_dark = 2131230780;
@@ -1408,8 +1417,11 @@ namespace Gomando
 			// aapt resource value: 0x7f08003d
 			public const int switch_thumb_normal_material_light = 2131230781;
 			
-			// aapt resource value: 0x7f080049
-			public const int training_history_text_view_color = 2131230793;
+			// aapt resource value: 0x7f08004c
+			public const int training_history_card_color = 2131230796;
+			
+			// aapt resource value: 0x7f08004d
+			public const int training_history_text_view_color = 2131230797;
 			
 			static Color()
 			{
@@ -2068,16 +2080,22 @@ namespace Gomando
 			public const int ic_button_edit = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_launcher_gomando = 2130837593;
+			public const int ic_button_save = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_settings = 2130837594;
+			public const int ic_launcher_gomando = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int navigation_empty_icon = 2130837595;
+			public const int ic_settings = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int notification_template_icon_bg = 2130837596;
+			public const int navigation_drawer_header_image = 2130837596;
+			
+			// aapt resource value: 0x7f02005d
+			public const int navigation_empty_icon = 2130837597;
+			
+			// aapt resource value: 0x7f02005e
+			public const int notification_template_icon_bg = 2130837598;
 			
 			static Drawable()
 			{
@@ -2278,6 +2296,12 @@ namespace Gomando
 			// aapt resource value: 0x7f06003b
 			public const int @fixed = 2131099707;
 			
+			// aapt resource value: 0x7f06009d
+			public const int group2 = 2131099805;
+			
+			// aapt resource value: 0x7f0600a0
+			public const int group3 = 2131099808;
+			
 			// aapt resource value: 0x7f060005
 			public const int home = 2131099653;
 			
@@ -2320,17 +2344,14 @@ namespace Gomando
 			// aapt resource value: 0x7f060089
 			public const int media_actions = 2131099785;
 			
-			// aapt resource value: 0x7f0600a0
-			public const int menu_navigation_profile = 2131099808;
-			
-			// aapt resource value: 0x7f06009f
-			public const int menu_navigation_settings = 2131099807;
-			
-			// aapt resource value: 0x7f06009d
-			public const int menu_navigation_training = 2131099805;
+			// aapt resource value: 0x7f0600a1
+			public const int menu_navigation_profile = 2131099809;
 			
 			// aapt resource value: 0x7f06009e
-			public const int menu_navigation_training_history = 2131099806;
+			public const int menu_navigation_training = 2131099806;
+			
+			// aapt resource value: 0x7f06009f
+			public const int menu_navigation_training_history = 2131099807;
 			
 			// aapt resource value: 0x7f06001e
 			public const int middle = 2131099678;
@@ -2524,14 +2545,14 @@ namespace Gomando
 			// aapt resource value: 0x7f060072
 			public const int touch_outside = 2131099762;
 			
-			// aapt resource value: 0x7f060096
-			public const int trainingDetailsDeleteTrainingButton = 2131099798;
+			// aapt resource value: 0x7f060095
+			public const int trainingDetailsDeleteTrainingButton = 2131099797;
 			
 			// aapt resource value: 0x7f060093
 			public const int trainingDetailsDistanceEditText = 2131099795;
 			
-			// aapt resource value: 0x7f060095
-			public const int trainingDetailsEditTrainingButton = 2131099797;
+			// aapt resource value: 0x7f060096
+			public const int trainingDetailsEditTrainingButton = 2131099798;
 			
 			// aapt resource value: 0x7f060094
 			public const int trainingDetailsTimeEditText = 2131099796;

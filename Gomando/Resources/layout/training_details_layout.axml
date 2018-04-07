@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/application_background_color">
-  <TextView
-      android:text="Dystans (w kilometrach)"
-      android:textAppearance="?android:attr/textAppearanceMedium"
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView1"
-      android:layout_marginLeft="4dp"/>
-  <EditText
-      android:inputType="numberDecimal"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/trainingDetailsDistanceEditText"
-      android:layout_marginLeft="4dp"/>
-  <TextView
-      android:text="Czas treningu"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView2"
-      android:layout_marginLeft="4dp"/>
-  <EditText
-      android:inputType="numberDecimal"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/trainingDetailsTimeEditText"
-      android:layout_marginLeft="4dp"/>
-  <Button
-      android:text="Edytuj trening"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="16dp" 
-      android:id="@+id/trainingDetailsEditTrainingButton"
-      android:background="@color/edit_training_button_color"
-      android:drawableLeft="@drawable/ic_button_edit"
-      android:drawablePadding="10dp"
-      android:gravity="left|center_vertical"/>
-  <Button
-     android:text="Usuń trening"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:padding="16dp"
-     android:drawablePadding="10dp"
-     android:id="@+id/trainingDetailsDeleteTrainingButton"
-     android:background="@color/delete_training_button_color"
-     android:drawableLeft="@drawable/ic_button_delete"
-     android:gravity="left|center_vertical"/>
-</LinearLayout>
+      android:layout_height="match_parent"
+      android:background="@color/application_background_color">
+    <TextView
+        android:text="Dystans (w kilometrach)"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginLeft="4dp"/>
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/trainingDetailsDistanceEditText"
+        android:layout_marginLeft="4dp"/>
+    <TextView
+        android:text="Czas treningu"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginLeft="4dp"/>
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/trainingDetailsTimeEditText"
+        android:layout_marginLeft="4dp"/>
+  </LinearLayout>
+  <android.support.design.widget.FloatingActionButton
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_gravity="bottom|left"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  app:backgroundTint="@color/delete_training_button_color"
+  android:id="@+id/trainingDetailsDeleteTrainingButton"
+  android:layout_margin="16dp"
+  android:src="@drawable/ic_button_delete"/>
+  <android.support.design.widget.FloatingActionButton
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="bottom|right"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:backgroundTint="@color/save_training_button_color"
+    android:id="@+id/trainingDetailsEditTrainingButton"
+    android:layout_margin="16dp"
+    android:src="@drawable/ic_button_save"/>
+</android.support.design.widget.CoordinatorLayout>

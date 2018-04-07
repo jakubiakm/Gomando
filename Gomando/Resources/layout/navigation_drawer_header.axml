@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="160dp"
     android:weightSum="1"
     android:background="@color/application_navigation_drawer_header_color">
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <ImageView
-            android:id="@+id/image_navigation_drawer_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="4dp" />
-        <TextView
-            android:id="@+id/text_navigation_drawer_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_toRightOf="@id/image_navigation_drawer_user"
-            android:text="Menu"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-    </RelativeLayout>
-</RelativeLayout>
+  <ImageView
+      android:id="@+id/image_navigation_drawer_user"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/navigation_drawer_header_image"/>
+  <TextView
+      android:id="@+id/text_navigation_drawer_user"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom"
+      android:shadowColor="#000000"
+      android:shadowRadius="1"
+      android:shadowDx="1"
+      android:shadowDy="1"
+      android:layout_margin="16dp"
+      android:text=""
+      android:textColor="@color/application_navigation_drawer_header_text_view_color"
+      android:textSize="20dp"
+      android:textStyle="bold"
+      android:typeface="sans" />
+  </FrameLayout>

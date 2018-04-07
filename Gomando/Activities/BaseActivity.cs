@@ -37,8 +37,6 @@ namespace Gomando.Activities
                    .SetFlags(ActivityFlags.ReorderToFront);
                     StartActivity(trainingIntent);
                     break;
-                case (Resource.Id.menu_navigation_settings):
-                    break;
                 case (Resource.Id.menu_navigation_training_history):
                     var trainingHistoryIntent = new Intent(this, typeof(TrainingHistoryActivity))
                    .SetFlags(ActivityFlags.ReorderToFront);

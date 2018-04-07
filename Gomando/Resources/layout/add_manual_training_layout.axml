@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/application_background_color">
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,14 +35,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/addManualTrainingTimeEditText"
         android:layout_marginLeft="4dp"/>
-    <Button
-        android:text="Zapisz"
-        android:layout_width="match_parent"
+  </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="bottom|right"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/ic_button_add"
-        android:background="@color/add_training_button_color"
-        android:gravity="left|center_vertical"
-        android:id="@+id/addManualTrainingAddTrainingButton" />
-</LinearLayout>
+        app:backgroundTint="@color/save_training_button_color"
+        android:id="@+id/addManualTrainingAddTrainingButton"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_button_save"/>
+</android.support.design.widget.CoordinatorLayout>

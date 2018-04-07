@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <group android:checkableBehavior="single">
+  <group android:checkableBehavior="single"
+         android:id="@+id/group2">
     <item
       android:id="@+id/menu_navigation_training"
       android:title="Trening"/>
     <item
       android:id="@+id/menu_navigation_training_history"
       android:title="Historia treningów"/>
-    <item
-      android:id="@+id/menu_navigation_settings"
-      android:title="Ustawienia"/>
+  </group>
+  <group android:checkableBehavior="none"
+         android:id="@+id/group3">
     <item
       android:id="@+id/menu_navigation_profile"
       android:title="Profil użytkownika"/>

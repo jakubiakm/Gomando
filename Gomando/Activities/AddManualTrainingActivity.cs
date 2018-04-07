@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 
@@ -21,7 +22,7 @@ namespace Gomando.Activities
     {
         AddManualTrainingLogic addManualTrainingLogic = new AddManualTrainingLogic();
 
-        public Button AddTrainingButton { get; private set; }
+        public FloatingActionButton AddTrainingButton { get; private set; }
         public TextView DistanceTextView { get; private set; }
         public TextView TimeTextView { get; private set; }
 
@@ -33,7 +34,7 @@ namespace Gomando.Activities
             View contentView = inflater.Inflate(Resource.Layout.add_manual_training_layout, null, false);
             mDrawer.AddView(contentView, 0);
 
-            AddTrainingButton = FindViewById<Button>(Resource.Id.addManualTrainingAddTrainingButton);
+            AddTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.addManualTrainingAddTrainingButton);
             DistanceTextView = FindViewById<EditText>(Resource.Id.addManualTrainingDistanceEditText);
             TimeTextView = FindViewById<EditText>(Resource.Id.addManualTrainingTimeEditText);
 

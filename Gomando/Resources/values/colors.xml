@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="add_training_button_color">#62b740</color>
-  <color name="training_history_text_view_color">#ffffff</color>
+
   <color name="delete_training_button_color">#d32f1d</color>
   <color name="edit_training_button_text_color">#000000</color>
   <color name="edit_training_button_color">#7986CB</color>
-  <color name="application_background_color">#1A237E</color>
-  <color name="application_toolbar_background_color">#5C6BC0</color>
-  <color name="application_navigation_drawer_color">#283593</color>
-  <color name="application_navigation_drawer_header_color">#3F51B5</color>
+
+  <color name="application_background_color">#ABBFCF</color>
+  <color name="training_history_card_color">#C8D8E6</color>
+  <color name="training_history_text_view_color">#8196A9</color>
+  <color name="application_navigation_drawer_color">#F4F6F8</color>
+  <color name="application_navigation_drawer_header_color">#F4F6F8</color>
+  <color name="application_navigation_drawer_header_text_view_color">#A8B6E0</color>
+  <color name="application_navigation_drawer_menu_text_color">#6979B0</color>
+  <color name="application_toolbar_background_color">#2791DE</color>
+  <color name="add_training_button_color">#3E9F75</color>
+  <color name="save_training_button_color">#B99449</color>
+  
 </resources>
