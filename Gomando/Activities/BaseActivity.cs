@@ -30,6 +30,8 @@ namespace Gomando.Activities
         private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
             e.MenuItem.SetChecked(true);
+           
+            mDrawer.CloseDrawers();
             switch (e.MenuItem.ItemId)
             {
                 case (Resource.Id.menu_navigation_training):
@@ -46,7 +48,6 @@ namespace Gomando.Activities
                     break;
 
             }
-            mDrawer.CloseDrawers();
         }
     }
 }

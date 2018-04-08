@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <group android:checkableBehavior="single"
-         android:id="@+id/group2">
+         android:id="@+id/group1">
     <item
       android:id="@+id/menu_navigation_training"
-      android:title="Trening"/>
+      android:title="Trening"
+      android:icon="@drawable/ic_menu_training"/>
     <item
       android:id="@+id/menu_navigation_training_history"
-      android:title="Historia treningów"/>
+      android:title="Historia treningów"
+      android:icon="@drawable/ic_menu_history"/>
   </group>
-  <group android:checkableBehavior="none"
-         android:id="@+id/group3">
+  <group android:checkableBehavior="single"
+         android:id="@+id/group2">
     <item
       android:id="@+id/menu_navigation_profile"
-      android:title="Profil użytkownika"/>
+      android:title="Profil użytkownika"
+      android:icon="@drawable/ic_menu_profile"/>
   </group>
 </menu>

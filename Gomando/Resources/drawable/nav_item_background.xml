@@ -1,0 +1,5 @@
+﻿
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:drawable="@color/application_navigation_drawer_menu_text_color" android:state_checked="true" />
+  <!--<item android:drawable="@color/application_toolbar_background_color" android:state_checked="true" />-->
+</selector>

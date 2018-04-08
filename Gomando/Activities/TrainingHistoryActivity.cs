@@ -17,6 +17,7 @@ using Gomando.Adapters;
 using Gomando.Fragments;
 using Android.Preferences;
 using Android.Support.Design.Widget;
+using System.Threading.Tasks;
 
 namespace Gomando.Activities
 {
@@ -37,6 +38,7 @@ namespace Gomando.Activities
         {
             switch (item.ItemId)
             {
+                
                 case Resource.Id.action_preferences:
                     //FragmentTransaction transcation = FragmentManager.BeginTransaction();
                     //Dialogclass signup = new Dialogclass();
@@ -69,6 +71,7 @@ namespace Gomando.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training_history);
 
             GetUserPreferences();
 
@@ -121,5 +124,13 @@ namespace Gomando.Activities
             mAdapter.ItemClick += OnItemClick;
             mRecyclerView.SetAdapter(mAdapter);
         }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training_history);
+
+        }
+
     }
 }

@@ -18,8 +18,19 @@ namespace Gomando.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training);
 
-            // Create your application here
+            LayoutInflater inflater = (LayoutInflater)this.GetSystemService(Context.LayoutInflaterService);
+            View contentView = inflater.Inflate(Resource.Layout.training_layout, null, false);
+            mDrawer.AddView(contentView, 0);
+
+
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training);
         }
     }
 }

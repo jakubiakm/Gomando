@@ -30,7 +30,11 @@
         android:layout_gravity="start"
         android:background="@color/application_navigation_drawer_color"
         app:headerLayout="@layout/navigation_drawer_header"
-        app:itemTextColor="@color/application_navigation_drawer_menu_text_color"
+        app:itemTextColor="@drawable/nav_item_text_color"
+        app:itemIconTint="@drawable/nav_item_icon_tint"
+        app:itemBackground="@drawable/nav_item_background"
+        
         app:menu="@menu/navigation_drawer" />
+  
   </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
