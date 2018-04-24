@@ -2173,25 +2173,34 @@ namespace Gomando
 			public const int ic_training_parameter_velocity = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int ic_training_type_running = 2130837609;
+			public const int ic_training_type_cycling = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int nav_item_background = 2130837610;
+			public const int ic_training_type_running = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int nav_item_icon_tint = 2130837611;
+			public const int ic_training_type_skating = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int nav_item_text_color = 2130837612;
+			public const int ic_training_type_walking = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int navigation_drawer_header_image = 2130837613;
+			public const int nav_item_background = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int navigation_empty_icon = 2130837614;
+			public const int nav_item_icon_tint = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notification_template_icon_bg = 2130837615;
+			public const int nav_item_text_color = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int navigation_drawer_header_image = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int navigation_empty_icon = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int notification_template_icon_bg = 2130837618;
 			
 			static Drawable()
 			{
@@ -3184,6 +3193,27 @@ namespace Gomando
 			
 			// aapt resource value: 0x7f090014
 			public const int status_bar_notification_info_overflow = 2131296276;
+			
+			// aapt resource value: 0x7f09002a
+			public const int training_type_cycling_name = 2131296298;
+			
+			// aapt resource value: 0x7f090026
+			public const int training_type_header_name = 2131296294;
+			
+			// aapt resource value: 0x7f09002b
+			public const int training_type_hiking_name = 2131296299;
+			
+			// aapt resource value: 0x7f090027
+			public const int training_type_running_name = 2131296295;
+			
+			// aapt resource value: 0x7f090025
+			public const int training_type_select_type_name = 2131296293;
+			
+			// aapt resource value: 0x7f090028
+			public const int training_type_skating_name = 2131296296;
+			
+			// aapt resource value: 0x7f090029
+			public const int training_type_walking_name = 2131296297;
 			
 			static String()
 			{

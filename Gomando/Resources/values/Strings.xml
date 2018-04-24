@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Gomando</string>
+
+  <!--Trainings Types-->
+  <string name="training_type_select_type_name">Wybierz rodzaj treningu</string>
+  <string name="training_type_header_name">Rodzaj treningu</string>
+  <string name="training_type_running_name">Bieganie</string>
+  <string name="training_type_skating_name">Rolki</string>
+  <string name="training_type_walking_name">Chodzenie</string>
+  <string name="training_type_cycling_name">Kolarstwo</string>
+  <string name="training_type_hiking_name">Piesze wędrówki</string>
 </resources>

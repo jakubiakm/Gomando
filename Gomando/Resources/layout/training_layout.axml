@@ -294,7 +294,7 @@
                     app:layout_heightPercent="40%"
                     app:layout_marginLeftPercent="10%"
                     android:gravity="bottom"
-                    android:text="Tempo"
+                    android:text="Śr. tempo"
                     android:textColor="@color/training_text_view_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -355,7 +355,7 @@
                     app:layout_heightPercent="40%"
                     app:layout_marginLeftPercent="10%"
                     android:gravity="bottom"
-                    android:text="Tempo"
+                    android:text="Prędkość"
                     android:textColor="@color/training_text_view_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -370,7 +370,7 @@
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       app:layout_widthPercent="20%" 
-                      android:src="@drawable/ic_training_parameter_tempo"/>
+                      android:src="@drawable/ic_training_parameter_velocity"/>
                   <Gomando.Controls.AutoResizeTextView
                       android:id="@+id/text_training_sliding_drawer_training_parameter_3_value"
                       android:layout_width="match_parent"
@@ -417,7 +417,7 @@
                     app:layout_heightPercent="40%"
                     app:layout_marginLeftPercent="10%"
                     android:gravity="bottom"
-                    android:text="Tempo"
+                    android:text="Śr. prędkość"
                     android:textColor="@color/training_text_view_color"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -432,7 +432,7 @@
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       app:layout_widthPercent="20%"
-                      android:src="@drawable/ic_training_parameter_tempo"/>
+                      android:src="@drawable/ic_training_parameter_velocity"/>
                   <Gomando.Controls.AutoResizeTextView
                       android:id="@+id/text_training_sliding_drawer_training_parameter_4_value"
                       android:layout_width="match_parent"

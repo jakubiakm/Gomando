@@ -9,12 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Gomando.Model.Enums;
 
 namespace Gomando.Activities
 {
     [Activity(Label = "Trening", MainLauncher = true)]
     public class TrainingActivity : BaseActivity
     {
+        public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,7 +27,7 @@ namespace Gomando.Activities
             View contentView = inflater.Inflate(Resource.Layout.training_layout, null, false);
             mDrawer.AddView(contentView, 0);
 
-
+            AddClickEventsToControls();
         }
 
         protected override void OnResume()
@@ -32,5 +35,64 @@ namespace Gomando.Activities
             base.OnResume();
             mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training);
         }
+
+        private void AddClickEventsToControls()
+        {
+            FindViewById(Resource.Id.layout_training_sliding_drawer_training_type).Click += TrainingTypeLayout_Click;
+        }
+
+        private void ChangeTrainingType(TrainingType trainingType)
+        {
+            CurrentTrainingType = trainingType;
+
+            FindViewById<ImageView>(Resource.Id.image_training_training_type).SetImageResource(MapTrainingTypeToNameIdAndImageSourceId(trainingType).Item2);
+            FindViewById<TextView>(Resource.Id.text_training_training_type_name).Text = MapTrainingTypeToNameIdAndImageSourceId(trainingType).Item1;
+        }
+
+        private (string, int) MapTrainingTypeToNameIdAndImageSourceId(TrainingType type)
+        {
+            string trainingName = "";
+            int trainingIconId = 0;
+            switch (type)
+            {
+                case TrainingType.Cycling:
+                    trainingName = Resources.GetString(Resource.String.training_type_cycling_name);
+                    trainingIconId = Resource.Drawable.ic_training_type_cycling;
+                    break;
+                case TrainingType.Hiking:
+                    trainingName = Resources.GetString(Resource.String.training_type_hiking_name);
+                    trainingIconId = Resource.Drawable.ic_training_type_walking;
+                    break;
+                case TrainingType.Running:
+                    trainingName = Resources.GetString(Resource.String.training_type_running_name);
+                    trainingIconId = Resource.Drawable.ic_training_type_running;
+                    break;
+                case TrainingType.Skating:
+                    trainingName = Resources.GetString(Resource.String.training_type_skating_name);
+                    trainingIconId = Resource.Drawable.ic_training_type_skating;
+                    break;
+                case TrainingType.Walking:
+                    trainingName = Resources.GetString(Resource.String.training_type_walking_name);
+                    trainingIconId = Resource.Drawable.ic_training_type_walking;
+                    break;
+                default:
+                    throw new Exception("Nie znaleziono typu treningu");
+            }
+            return (trainingName, trainingIconId);
+        }
+
+        #region UI EVENTS
+        private void TrainingTypeLayout_Click(object sender, EventArgs e)
+        {
+            TrainingType[] trainingTypes = Enum.GetValues(typeof(TrainingType)) as TrainingType[];
+            Android.Support.V7.App.AlertDialog.Builder builder = new Android.Support.V7.App.AlertDialog.Builder(this);
+            builder.SetTitle(Resources.GetString(Resource.String.training_type_select_type_name));
+            builder.SetItems(
+                trainingTypes.Select(type => MapTrainingTypeToNameIdAndImageSourceId(type).Item1).ToArray(),
+                new EventHandler<DialogClickEventArgs>((senderr, ee) => ChangeTrainingType(trainingTypes[ee.Which])));
+            Android.Support.V7.App.AlertDialog alert = builder.Create();
+            alert.Show();
+        }
+        #endregion
     }
 }
