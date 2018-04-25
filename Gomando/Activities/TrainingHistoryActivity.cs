@@ -129,8 +129,6 @@ namespace Gomando.Activities
         {
             base.OnResume();
             mNavigationView.SetCheckedItem(Resource.Id.menu_navigation_training_history);
-
         }
-
     }
 }

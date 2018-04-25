@@ -5,6 +5,8 @@ using Android.Support.V7.App;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
 using Android.Content;
+using Auth0.OidcClient;
+using IdentityModel.OidcClient;
 
 namespace Gomando.Activities
 {
@@ -14,6 +16,10 @@ namespace Gomando.Activities
         protected DrawerLayout mDrawer;
         protected NavigationView mNavigationView;
         protected Android.Support.V7.Widget.Toolbar mToolbar;
+
+        //Auth0 authorization properties
+        internal Auth0Client client;
+        internal AuthorizeState authorizeState;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,7 +33,7 @@ namespace Gomando.Activities
 
             SetSupportActionBar(mToolbar);
         }
-        private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
+        private async void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
             e.MenuItem.SetChecked(true);
            
@@ -45,6 +51,20 @@ namespace Gomando.Activities
                     StartActivity(trainingHistoryIntent);
                     break;
                 case (Resource.Id.menu_navigation_profile):
+                    client = new Auth0Client(new Auth0ClientOptions
+                    {
+                        Domain = "gomando.eu.auth0.com",
+                        ClientId = "ipNMZdU7KW6acYYEbQLTMqGR5BP4FheO",
+                        Activity = this
+                    });
+
+
+                    authorizeState = await client.PrepareLoginAsync();
+
+                    var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+                    var intent = new Intent(Intent.ActionView, uri);
+                    intent.AddFlags(ActivityFlags.NoHistory);
+                    StartActivity(intent);
                     break;
 
             }

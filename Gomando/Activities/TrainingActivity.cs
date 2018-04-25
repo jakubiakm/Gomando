@@ -5,15 +5,23 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+
 using Gomando.Model.Enums;
 
 namespace Gomando.Activities
 {
-    [Activity(Label = "Trening", MainLauncher = true)]
+    [Activity(Label = "Trening", MainLauncher = true, LaunchMode = LaunchMode.SingleTask)]
+    [IntentFilter(
+    new[] { Intent.ActionView },
+    Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
+    DataScheme = "gomando.gomando",
+    DataHost = "gomando.eu.auth0.com",
+    DataPathPrefix = "/android/gomando.gomando/callback")]
     public class TrainingActivity : BaseActivity
     {
         public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
@@ -82,6 +90,16 @@ namespace Gomando.Activities
         }
 
         #region UI EVENTS
+        protected override async void OnNewIntent(Intent intent)
+        {
+            base.OnNewIntent(intent);
+
+            if (intent.DataString != null)
+            {
+                var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+            }
+        }
+
         private void TrainingTypeLayout_Click(object sender, EventArgs e)
         {
             TrainingType[] trainingTypes = Enum.GetValues(typeof(TrainingType)) as TrainingType[];

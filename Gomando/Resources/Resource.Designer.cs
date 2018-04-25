@@ -26,6 +26,8 @@ namespace Gomando
 		
 		public static void UpdateIdValues()
 		{
+			global::Auth0.OidcClient.Resource.String.ApplicationName = global::Gomando.Resource.String.ApplicationName;
+			global::Auth0.OidcClient.Resource.String.Hello = global::Gomando.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -3083,6 +3085,12 @@ namespace Gomando
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f090025
+			public const int ApplicationName = 2131296293;
+			
+			// aapt resource value: 0x7f090024
+			public const int Hello = 2131296292;
+			
 			// aapt resource value: 0x7f090000
 			public const int abc_action_bar_home_description = 2131296256;
 			
@@ -3176,8 +3184,8 @@ namespace Gomando
 			// aapt resource value: 0x7f090012
 			public const int abc_toolbar_collapse_description = 2131296274;
 			
-			// aapt resource value: 0x7f090024
-			public const int app_name = 2131296292;
+			// aapt resource value: 0x7f090026
+			public const int app_name = 2131296294;
 			
 			// aapt resource value: 0x7f090021
 			public const int appbar_scrolling_view_behavior = 2131296289;
@@ -3194,26 +3202,26 @@ namespace Gomando
 			// aapt resource value: 0x7f090014
 			public const int status_bar_notification_info_overflow = 2131296276;
 			
-			// aapt resource value: 0x7f09002a
-			public const int training_type_cycling_name = 2131296298;
-			
-			// aapt resource value: 0x7f090026
-			public const int training_type_header_name = 2131296294;
-			
-			// aapt resource value: 0x7f09002b
-			public const int training_type_hiking_name = 2131296299;
-			
-			// aapt resource value: 0x7f090027
-			public const int training_type_running_name = 2131296295;
-			
-			// aapt resource value: 0x7f090025
-			public const int training_type_select_type_name = 2131296293;
+			// aapt resource value: 0x7f09002c
+			public const int training_type_cycling_name = 2131296300;
 			
 			// aapt resource value: 0x7f090028
-			public const int training_type_skating_name = 2131296296;
+			public const int training_type_header_name = 2131296296;
+			
+			// aapt resource value: 0x7f09002d
+			public const int training_type_hiking_name = 2131296301;
 			
 			// aapt resource value: 0x7f090029
-			public const int training_type_walking_name = 2131296297;
+			public const int training_type_running_name = 2131296297;
+			
+			// aapt resource value: 0x7f090027
+			public const int training_type_select_type_name = 2131296295;
+			
+			// aapt resource value: 0x7f09002a
+			public const int training_type_skating_name = 2131296298;
+			
+			// aapt resource value: 0x7f09002b
+			public const int training_type_walking_name = 2131296299;
 			
 			static String()
 			{
