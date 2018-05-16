@@ -18,7 +18,7 @@
   <color name="edit_training_button_text_color">#000000</color>
   <color name="edit_training_button_color">#7986CB</color>
 
-  <color name="sliding_drawer_training_background_color">#86000000</color>
+  <color name="sliding_drawer_training_background_color">#C6000000</color>
   <color name="sliding_drawer_handle_button_color">#6979B0</color>
   <color name="start_training_button_color">#3E9F75</color>
   <color name="stop_training_button_color">#F44437</color>

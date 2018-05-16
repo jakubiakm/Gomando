@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Maps;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -22,10 +23,12 @@ namespace Gomando.Activities
     DataScheme = "gomando.gomando",
     DataHost = "gomando.eu.auth0.com",
     DataPathPrefix = "/android/gomando.gomando/callback")]
-    public class TrainingActivity : BaseActivity
+    public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
         public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
 
+        public GoogleMap Map { get; set; } = null;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,6 +39,14 @@ namespace Gomando.Activities
             mDrawer.AddView(contentView, 0);
 
             AddClickEventsToControls();
+
+            GetGoogleMap();
+        }
+
+        private void GetGoogleMap()
+        {
+            var mapFragment = FragmentManager.FindFragmentById(Resource.Id.fragment_training_map) as MapFragment;
+            mapFragment.GetMapAsync(this);
         }
 
         protected override void OnResume()
@@ -110,6 +121,12 @@ namespace Gomando.Activities
                 new EventHandler<DialogClickEventArgs>((senderr, ee) => ChangeTrainingType(trainingTypes[ee.Which])));
             Android.Support.V7.App.AlertDialog alert = builder.Create();
             alert.Show();
+        }
+
+        public void OnMapReady(GoogleMap googleMap)
+        {
+            Map = googleMap;
+
         }
         #endregion
     }

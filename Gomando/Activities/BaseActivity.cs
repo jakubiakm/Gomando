@@ -72,3 +72,6 @@ namespace Gomando.Activities
     }
 }
 
+////TODO:
+//- po n klikniecia znikaja jednopstki
+//- w prawym dolnym rogu dwa przyciski przy usuwaniu zamiast z prawej i lewej
