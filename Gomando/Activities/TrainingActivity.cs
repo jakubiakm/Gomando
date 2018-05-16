@@ -6,12 +6,16 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Common;
 using Android.Gms.Maps;
+using Android.Locations;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
-
+using Gomando.Helpers;
+using Gomando.Logic;
 using Gomando.Model.Enums;
 
 namespace Gomando.Activities
@@ -25,9 +29,10 @@ namespace Gomando.Activities
     DataPathPrefix = "/android/gomando.gomando/callback")]
     public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
-        public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
+        public TrainingLogic logic = new TrainingLogic();
+        public GoogleMapsHelper googleMapsHelper = new GoogleMapsHelper(null);
 
-        public GoogleMap Map { get; set; } = null;
+        public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -100,6 +105,34 @@ namespace Gomando.Activities
             return (trainingName, trainingIconId);
         }
 
+        public void OnMapReady(GoogleMap googleMap)
+        {
+            googleMapsHelper = new GoogleMapsHelper(googleMap);
+            googleMapsHelper.ZoomToCurrentLocation();
+        }
+
+        bool IsGooglePlayServicesInstalled()
+        {
+            var queryResult = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (queryResult == ConnectionResult.Success)
+            {
+                Log.Info("MainActivity", "Google Play Services is installed on this device.");
+                return true;
+            }
+
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(queryResult))
+            {
+                // Check if there is a way the user can resolve the issue
+                var errorString = GoogleApiAvailability.Instance.GetErrorString(queryResult);
+                Log.Error("MainActivity", "There is a problem with Google Play Services on this device: {0} - {1}",
+                          queryResult, errorString);
+
+                // Alternately, display the error to the user.
+            }
+
+            return false;
+        }
+
         #region UI EVENTS
         protected override async void OnNewIntent(Intent intent)
         {
@@ -121,12 +154,6 @@ namespace Gomando.Activities
                 new EventHandler<DialogClickEventArgs>((senderr, ee) => ChangeTrainingType(trainingTypes[ee.Which])));
             Android.Support.V7.App.AlertDialog alert = builder.Create();
             alert.Show();
-        }
-
-        public void OnMapReady(GoogleMap googleMap)
-        {
-            Map = googleMap;
-
         }
         #endregion
     }
