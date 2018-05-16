@@ -13,6 +13,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Gomando.Model.Enums;
 
 namespace Gomando.Helpers
 {
@@ -20,23 +21,28 @@ namespace Gomando.Helpers
     {
         public GoogleMap Map { get; set; }
         public Location CurrentLocation { get; set; }
-        public bool TrainingPaused { get; set; } = true;
+        public TrainingState CurrentTrainingState { get; set; } = TrainingState.NotStarted;
         public bool LastLocationAdded { get; private set; } = false;
         public List<List<LatLng>> AllTrainingLocations { get; private set; } = new List<List<LatLng>>();
         public List<LatLng> CurrentTrainingLocations { get; private set; } = new List<LatLng>();
 
         public Marker CurrentLocationMarker { get; private set; } = null;
         public Circle CurrentLocationAccuracy { get; private set; } = null;
+        public Polyline MapRoadPolyLine { get; private set; } = null;
 
-        public TrainingHelper(GoogleMap map) => Map = map;
 
+        public TrainingHelper(GoogleMap map, TrainingState state)
+        {
+            Map = map;
+            CurrentTrainingState = state;
+        }
 
 
         public void ChangeCurrentLocation(Location location)
         {
             if (CurrentLocation != null)
             {
-                if (TrainingPaused)
+                if (CurrentTrainingState != TrainingState.Started)
                 {
                     if (LastLocationAdded)
                     {
@@ -47,6 +53,7 @@ namespace Gomando.Helpers
                 }
                 else
                 {
+                    AddLocationLineOnMap();
                     CurrentTrainingLocations.Add(new LatLng(location.Latitude, location.Longitude));
                     LastLocationAdded = true;
                 }
@@ -54,6 +61,31 @@ namespace Gomando.Helpers
             AnimateToCurrentLocation();
             SetCurrentLocationMarker();
             CurrentLocation = location;
+            
+        }
+
+        private void AddLocationLineOnMap()
+        {
+            if (Map != null)
+            {
+                if (CurrentLocation != null)
+                {
+                    if (MapRoadPolyLine == null || !LastLocationAdded)
+                    {
+                        PolylineOptions options = new PolylineOptions()
+                            .InvokeColor((new Color(105, 121, 176, 200).ToArgb()))
+                            .InvokeWidth(10);
+                        options.Add(new LatLng(CurrentLocation.Latitude, CurrentLocation.Longitude));
+                        MapRoadPolyLine = Map.AddPolyline(options);
+                    }
+                    else
+                    {
+                        IList<LatLng> points = MapRoadPolyLine.Points;
+                        points.Add(new LatLng(CurrentLocation.Latitude, CurrentLocation.Longitude));
+                        MapRoadPolyLine.Points = points;
+                    }
+                }
+            }
         }
 
         public void AnimateToCurrentLocation()
@@ -70,6 +102,8 @@ namespace Gomando.Helpers
                 }
             }
         }
+
+        
 
         public void SetCurrentLocationMarker()
         {

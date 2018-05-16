@@ -42,11 +42,13 @@ namespace Gomando.Activities
     {
         MyLocationCallback locationCallback;
         FusedLocationProviderClient locationClient;
-        
-        public TrainingHelper trainingHelper = new TrainingHelper(null);
+
+        public TrainingHelper trainingHelper = new TrainingHelper(null, TrainingState.NotStarted);
 
         public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
-        
+
+        public TrainingState CurrentTrainingState { get; set; } = TrainingState.NotStarted;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -78,7 +80,10 @@ namespace Gomando.Activities
         private void AddClickEventsToControls()
         {
             FindViewById(Resource.Id.layout_training_sliding_drawer_training_type).Click += TrainingTypeLayout_Click;
+            FindViewById(Resource.Id.button_training_left).Click += LeftTrainingButton_Click;
+            FindViewById(Resource.Id.button_training_right).Click += RightTrainingButton_Click;
         }
+
 
         private void ChangeTrainingType(TrainingType trainingType)
         {
@@ -122,7 +127,7 @@ namespace Gomando.Activities
 
         public void OnMapReady(GoogleMap googleMap)
         {
-            trainingHelper = new TrainingHelper(googleMap);
+            trainingHelper = new TrainingHelper(googleMap, CurrentTrainingState);
         }
 
         async Task StartLocationUpdatesAsync()
@@ -161,6 +166,62 @@ namespace Gomando.Activities
             trainingHelper.ChangeCurrentLocation(e);
         }
 
+        public void StartTraining()
+        {
+            CurrentTrainingState = TrainingState.Started;
+            trainingHelper.CurrentTrainingState = TrainingState.Started;
+            var button = FindViewById(Resource.Id.button_training_left);
+            var layoutParams = (RelativeLayout.LayoutParams)button.LayoutParameters;
+            layoutParams.AddRule(LayoutRules.CenterInParent, 1);
+            button.LayoutParameters = layoutParams;
+
+            FindViewById(Resource.Id.button_training_left).Visibility = ViewStates.Visible;
+            FindViewById(Resource.Id.button_training_right).Visibility = ViewStates.Gone;
+            FindViewById<ImageButton>(Resource.Id.button_training_left).SetImageResource(Resource.Drawable.btn_training_pause);
+        }
+
+        public void ResumeTraining()
+        {
+            CurrentTrainingState = TrainingState.Started;
+            trainingHelper.CurrentTrainingState = TrainingState.Started;
+            var button = FindViewById(Resource.Id.button_training_left);
+            var layoutParams = (RelativeLayout.LayoutParams)button.LayoutParameters;
+            layoutParams.AddRule(LayoutRules.CenterInParent, 1);
+            button.LayoutParameters = layoutParams;
+
+            FindViewById(Resource.Id.button_training_left).Visibility = ViewStates.Visible;
+            FindViewById(Resource.Id.button_training_right).Visibility = ViewStates.Gone;
+            FindViewById<ImageButton>(Resource.Id.button_training_left).SetImageResource(Resource.Drawable.btn_training_pause);
+        }
+
+        public void PauseTraining()
+        {
+            CurrentTrainingState = TrainingState.Paused;
+            trainingHelper.CurrentTrainingState = TrainingState.Paused;
+            var button = FindViewById(Resource.Id.button_training_left);
+            var layoutParams = (RelativeLayout.LayoutParams)button.LayoutParameters;
+            layoutParams.AddRule(LayoutRules.CenterInParent, 0);
+            button.LayoutParameters = layoutParams;
+
+            FindViewById(Resource.Id.button_training_left).Visibility = ViewStates.Visible;
+            FindViewById(Resource.Id.button_training_right).Visibility = ViewStates.Visible;
+            FindViewById<ImageButton>(Resource.Id.button_training_left).SetImageResource(Resource.Drawable.btn_training_start);
+        }
+
+        public void EndTraining()
+        {
+            CurrentTrainingState = TrainingState.NotStarted;
+            trainingHelper.CurrentTrainingState = TrainingState.NotStarted;
+            var button = FindViewById(Resource.Id.button_training_left);
+            var layoutParams = (RelativeLayout.LayoutParams)button.LayoutParameters;
+            layoutParams.AddRule(LayoutRules.CenterInParent, 1);
+            button.LayoutParameters = layoutParams;
+
+            FindViewById(Resource.Id.button_training_left).Visibility = ViewStates.Visible;
+            FindViewById(Resource.Id.button_training_right).Visibility = ViewStates.Gone;
+            FindViewById<ImageButton>(Resource.Id.button_training_left).SetImageResource(Resource.Drawable.btn_training_start);
+        }
+
         #region UI EVENTS
         protected override async void OnNewIntent(Intent intent)
         {
@@ -182,6 +243,33 @@ namespace Gomando.Activities
                 new EventHandler<DialogClickEventArgs>((senderr, ee) => ChangeTrainingType(trainingTypes[ee.Which])));
             Android.Support.V7.App.AlertDialog alert = builder.Create();
             alert.Show();
+        }
+
+
+        private void LeftTrainingButton_Click(object sender, EventArgs e)
+        {
+            switch (CurrentTrainingState)
+            {
+                case TrainingState.NotStarted:
+                    StartTraining();
+                    break;
+                case TrainingState.Started:
+                    PauseTraining();
+                    break;
+                case TrainingState.Paused:
+                    ResumeTraining();
+                    break;
+            }
+        }
+
+        private void RightTrainingButton_Click(object sender, EventArgs e)
+        {
+            switch (CurrentTrainingState)
+            {
+                case TrainingState.Paused:
+                    EndTraining();
+                    break;
+            }
         }
         #endregion
 

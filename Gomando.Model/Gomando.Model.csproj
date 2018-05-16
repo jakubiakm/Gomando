@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\TrainingState.cs" />
     <Compile Include="Enums\TrainingType.cs" />
     <Compile Include="Models\IBusinessEntity.cs" />
     <Compile Include="Models\Training.cs" />
