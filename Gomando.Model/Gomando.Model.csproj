@@ -60,6 +60,7 @@
     <Compile Include="Enums\TrainingState.cs" />
     <Compile Include="Enums\TrainingType.cs" />
     <Compile Include="Models\IBusinessEntity.cs" />
+    <Compile Include="Models\Localization.cs" />
     <Compile Include="Models\Training.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

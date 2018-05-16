@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -40,6 +41,8 @@ namespace Gomando.Activities
     DataPathPrefix = "/android/gomando.gomando/callback")]
     public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
+        public int TrainingTime { get; set; } = 0;
+
         MyLocationCallback locationCallback;
         FusedLocationProviderClient locationClient;
 
@@ -61,7 +64,7 @@ namespace Gomando.Activities
             AddClickEventsToControls();
 
             GetGoogleMap();
-
+            SetUpTimers();
             StartLocationUpdatesAsync();
         }
 
@@ -128,6 +131,46 @@ namespace Gomando.Activities
         public void OnMapReady(GoogleMap googleMap)
         {
             trainingHelper = new TrainingHelper(googleMap, CurrentTrainingState);
+        }
+
+        private void SetUpTimers()
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += new ElapsedEventHandler(TimerElapsedEventHandler);
+            timer.Start();
+        }
+        private void TimerElapsedEventHandler(object sender, EventArgs e)
+        {
+            if (CurrentTrainingState == TrainingState.Paused || CurrentTrainingState == TrainingState.NotStarted)
+                ShowNotification();
+            if (CurrentTrainingState == TrainingState.Started)
+            {
+                TrainingTime++;
+            }
+            RunOnUiThread(() => FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_time_value).Text = MathHelper.ConvertSecondsToTimeString(TrainingTime));
+        }
+
+        private void ShowNotification()
+        {
+            //Intent pauseReceive = new Intent();
+            //pauseReceive.SetAction("Pause");
+            //PendingIntent pendingIntentYes = PendingIntent.GetBroadcast(this, 12345, pauseReceive, PendingIntentFlags.UpdateCurrent);
+            //var intent = new Intent(this, typeof(TrainingActivity))
+            //   .SetFlags(ActivityFlags.ReorderToFront);
+            //const int pendingIntentId = 0;
+            //PendingIntent pendingIntent = PendingIntent.GetActivity(this, pendingIntentId, intent, PendingIntentFlags.UpdateCurrent);
+            //NotificationBuilder.MActions.Clear();
+            //NotificationBuilder.SetContentText(string.Format(Resources.GetString(Resource.String.notification_content_text), Time, Distance, Tempo));
+            //NotificationBuilder.SetContentIntent(pendingIntent);
+            //NotificationBuilder.SetPriority(2);
+            //NotificationBuilder.AddAction(new Android.Support.V4.App.NotificationCompat.Action(
+            //    Resource.Drawable.ic_launcher_gomando_sport,
+            //    CurrentTrainingState == TrainingState.Active ?
+            //    Resources.GetString(Resource.String.notification_action_pause_text) :
+            //    Resources.GetString(Resource.String.notification_action_resume_text),
+            //    pendingIntentYes));
+            //NotificationManager.Notify(NotifyID, NotificationBuilder.Build());
         }
 
         async Task StartLocationUpdatesAsync()
