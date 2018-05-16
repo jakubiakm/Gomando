@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Common;
+using Android.Gms.Location;
 using Android.Gms.Maps;
 using Android.Locations;
 using Android.OS;
@@ -20,6 +21,16 @@ using Gomando.Model.Enums;
 
 namespace Gomando.Activities
 {
+    internal class MyLocationCallback : LocationCallback
+    {
+        public EventHandler<Location> LocationUpdated;
+        public override void OnLocationResult(LocationResult result)
+        {
+            base.OnLocationResult(result);
+            LocationUpdated?.Invoke(this, result.LastLocation);
+        }
+    }
+
     [Activity(Label = "Trening", MainLauncher = true, LaunchMode = LaunchMode.SingleTask)]
     [IntentFilter(
     new[] { Intent.ActionView },
@@ -29,8 +40,10 @@ namespace Gomando.Activities
     DataPathPrefix = "/android/gomando.gomando/callback")]
     public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
-        public TrainingLogic logic = new TrainingLogic();
-        public GoogleMapsHelper googleMapsHelper = new GoogleMapsHelper(null);
+        MyLocationCallback locationCallback;
+        FusedLocationProviderClient locationClient;
+        
+        public TrainingHelper trainingHelper = new TrainingHelper(null);
 
         public TrainingType CurrentTrainingType { get; set; } = TrainingType.Running;
         
@@ -46,6 +59,8 @@ namespace Gomando.Activities
             AddClickEventsToControls();
 
             GetGoogleMap();
+
+            StartLocationUpdatesAsync();
         }
 
         private void GetGoogleMap()
@@ -107,30 +122,43 @@ namespace Gomando.Activities
 
         public void OnMapReady(GoogleMap googleMap)
         {
-            googleMapsHelper = new GoogleMapsHelper(googleMap);
-            googleMapsHelper.ZoomToCurrentLocation();
+            trainingHelper = new TrainingHelper(googleMap);
         }
 
-        bool IsGooglePlayServicesInstalled()
+        async Task StartLocationUpdatesAsync()
         {
-            var queryResult = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-            if (queryResult == ConnectionResult.Success)
+            // Create a callback that will get the location updates
+            if (locationCallback == null)
             {
-                Log.Info("MainActivity", "Google Play Services is installed on this device.");
-                return true;
+                locationCallback = new MyLocationCallback();
+                locationCallback.LocationUpdated += OnLocationResult;
             }
 
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(queryResult))
+            // Get the current client
+            if (locationClient == null)
+                locationClient = LocationServices.GetFusedLocationProviderClient(this);
+
+            try
             {
-                // Check if there is a way the user can resolve the issue
-                var errorString = GoogleApiAvailability.Instance.GetErrorString(queryResult);
-                Log.Error("MainActivity", "There is a problem with Google Play Services on this device: {0} - {1}",
-                          queryResult, errorString);
+                //Create request and set intervals:
+                //Interval: Desired interval for active location updates, it is inexact and you may not receive upates at all if no location servers are available
+                //Fastest: Interval is exact and app will never receive updates faster than this value
+                var locationRequest = new LocationRequest()
+                                          .SetInterval(10000)
+                                          .SetFastestInterval(5000)
+                                          .SetPriority(LocationRequest.PriorityHighAccuracy);
 
-                // Alternately, display the error to the user.
+                await locationClient.RequestLocationUpdatesAsync(locationRequest, locationCallback);
             }
+            catch (Exception ex)
+            {
+                //Handle exception here if failed to register
+            }
+        }
 
-            return false;
+        private void OnLocationResult(object sender, Location e)
+        {
+            trainingHelper.ChangeCurrentLocation(e);
         }
 
         #region UI EVENTS
@@ -156,5 +184,6 @@ namespace Gomando.Activities
             alert.Show();
         }
         #endregion
+
     }
 }
