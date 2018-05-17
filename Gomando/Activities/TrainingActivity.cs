@@ -52,6 +52,7 @@ namespace Gomando.Activities
 
         public TrainingState CurrentTrainingState { get; set; } = TrainingState.NotStarted;
 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -211,6 +212,7 @@ namespace Gomando.Activities
 
         public void StartTraining()
         {
+            trainingHelper.Reset();
             CurrentTrainingState = TrainingState.Started;
             trainingHelper.CurrentTrainingState = TrainingState.Started;
             var button = FindViewById(Resource.Id.button_training_left);
@@ -253,6 +255,7 @@ namespace Gomando.Activities
 
         public void EndTraining()
         {
+            trainingHelper.Reset();
             CurrentTrainingState = TrainingState.NotStarted;
             trainingHelper.CurrentTrainingState = TrainingState.NotStarted;
             var button = FindViewById(Resource.Id.button_training_left);

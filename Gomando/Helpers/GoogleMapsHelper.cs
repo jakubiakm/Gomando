@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-using Android.App;
-using Android.Content;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Graphics;
 using Android.Locations;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Gomando.Model.Enums;
-
+using Gomando.Model.Models;
 namespace Gomando.Helpers
 {
     public class TrainingHelper
@@ -23,13 +16,14 @@ namespace Gomando.Helpers
         public Location CurrentLocation { get; set; }
         public TrainingState CurrentTrainingState { get; set; } = TrainingState.NotStarted;
         public bool LastLocationAdded { get; private set; } = false;
-        public List<List<LatLng>> AllTrainingLocations { get; private set; } = new List<List<LatLng>>();
-        public List<LatLng> CurrentTrainingLocations { get; private set; } = new List<LatLng>();
+        public bool MapsInitialized { get; private set; } = false;
+        public List<List<Localization>> AllTrainingLocalizations { get; private set; } = new List<List<Localization>>();
+        public List<Localization> CurrentTrainingLocalizations { get; private set; } = new List<Localization>();
 
         public Marker CurrentLocationMarker { get; private set; } = null;
         public Circle CurrentLocationAccuracy { get; private set; } = null;
         public Polyline MapRoadPolyLine { get; private set; } = null;
-
+        public List<Polyline> PolyLines { get; private set; } = new List<Polyline>();
 
         public TrainingHelper(GoogleMap map, TrainingState state)
         {
@@ -37,31 +31,64 @@ namespace Gomando.Helpers
             CurrentTrainingState = state;
         }
 
+        public void Reset()
+        {
+            LastLocationAdded = false;
+            AllTrainingLocalizations = new List<List<Localization>>();
+            CurrentTrainingLocalizations = new List<Localization>();
+            PolyLines.ForEach(polyline => polyline.Remove());
+            PolyLines = new List<Polyline>();
+            MapRoadPolyLine = null;
+        }
+
 
         public void ChangeCurrentLocation(Location location)
         {
-            if (CurrentLocation != null)
+            if (MapsInitialized)
             {
                 if (CurrentTrainingState != TrainingState.Started)
                 {
+                    CurrentLocation = location;
                     if (LastLocationAdded)
                     {
                         LastLocationAdded = false;
-                        AllTrainingLocations.Add(CurrentTrainingLocations);
-                        CurrentTrainingLocations = new List<LatLng>();
+                        AllTrainingLocalizations.Add(CurrentTrainingLocalizations);
+                        CurrentTrainingLocalizations = new List<Localization>();
                     }
                 }
                 else
                 {
+                    if (!LastLocationAdded)
+                    {
+                        AddLocationLineOnMap();
+                        CurrentTrainingLocalizations.Add(new Localization
+                        {
+                            Date = DateTime.Now,
+                            Latitude = CurrentLocation.Latitude,
+                            Longitude = CurrentLocation.Longitude
+                        });
+                        LastLocationAdded = true;
+                    }
+                    CurrentLocation = location;
                     AddLocationLineOnMap();
-                    CurrentTrainingLocations.Add(new LatLng(location.Latitude, location.Longitude));
+                    CurrentTrainingLocalizations.Add(new Localization
+                    {
+                        Date = DateTime.Now,
+                        Latitude = CurrentLocation.Latitude,
+                        Longitude = CurrentLocation.Longitude
+                    });
                     LastLocationAdded = true;
                 }
+                AnimateToCurrentLocation();
+                SetCurrentLocationMarker();
             }
-            AnimateToCurrentLocation();
-            SetCurrentLocationMarker();
-            CurrentLocation = location;
-            
+            else
+            {
+                AnimateToCurrentLocation();
+                SetCurrentLocationMarker();
+                CurrentLocation = location;
+                MapsInitialized = true;
+            }
         }
 
         private void AddLocationLineOnMap()
@@ -74,9 +101,10 @@ namespace Gomando.Helpers
                     {
                         PolylineOptions options = new PolylineOptions()
                             .InvokeColor((new Color(105, 121, 176, 200).ToArgb()))
-                            .InvokeWidth(10);
+                            .InvokeWidth(20);
                         options.Add(new LatLng(CurrentLocation.Latitude, CurrentLocation.Longitude));
                         MapRoadPolyLine = Map.AddPolyline(options);
+                        PolyLines.Add(MapRoadPolyLine);
                     }
                     else
                     {
@@ -94,7 +122,7 @@ namespace Gomando.Helpers
             {
                 if (CurrentLocation == null)
                 {
-                    Map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(52.216819, 21.014766), 14));
+                    Map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(52.216819, 21.014766), 17));
                 }
                 else
                 {
@@ -103,7 +131,7 @@ namespace Gomando.Helpers
             }
         }
 
-        
+
 
         public void SetCurrentLocationMarker()
         {
@@ -111,7 +139,7 @@ namespace Gomando.Helpers
             {
                 if (CurrentLocation != null)
                 {
-                    if(CurrentLocationMarker == null)
+                    if (CurrentLocationMarker == null)
                     {
                         MarkerOptions markerOpt = new MarkerOptions()
                             .SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.ic_current_location_marker))
