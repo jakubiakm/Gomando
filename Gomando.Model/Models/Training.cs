@@ -16,7 +16,7 @@ namespace Gomando.Model.Models
 
         public double Time { get; set; }
 
-        public List<List<Localization>> Localizations { get; set; }
+        public byte[] SerializedLocalizations { get; set; }
 
         public DateTime StartDate { get; set; }
 

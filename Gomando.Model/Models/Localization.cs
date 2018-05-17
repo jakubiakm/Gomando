@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gomando.Model.Models
 {
+    [Serializable]
     public class Localization
     {
         public double Longitude { get; set; }

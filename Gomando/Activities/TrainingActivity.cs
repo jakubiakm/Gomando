@@ -42,6 +42,8 @@ namespace Gomando.Activities
     public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
         public int TrainingTime { get; set; } = 0;
+        public double TrainingDistance { get; set; } = 0;
+        public DateTime TrainingStartDate { get; set; } = DateTime.MinValue;
 
         MyLocationCallback locationCallback;
         FusedLocationProviderClient locationClient;
@@ -212,6 +214,10 @@ namespace Gomando.Activities
 
         public void StartTraining()
         {
+            TrainingTime = 0;
+            TrainingDistance = 0;
+            TrainingStartDate = DateTime.Now;
+            
             trainingHelper.Reset();
             CurrentTrainingState = TrainingState.Started;
             trainingHelper.CurrentTrainingState = TrainingState.Started;
@@ -255,6 +261,7 @@ namespace Gomando.Activities
 
         public void EndTraining()
         {
+            trainingHelper.SaveTraining(CurrentTrainingType, TrainingStartDate, TrainingDistance, TrainingTime);
             trainingHelper.Reset();
             CurrentTrainingState = TrainingState.NotStarted;
             trainingHelper.CurrentTrainingState = TrainingState.NotStarted;

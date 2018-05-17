@@ -22,7 +22,7 @@ namespace Gomando.Repository.DataLayer
         {
             get
             {
-                var sqliteFilename = "GomandoTrainingDB.db3";
+                var sqliteFilename = "GomandoDB.db3";
                 string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 var path = Path.Combine(libraryPath, sqliteFilename);
 

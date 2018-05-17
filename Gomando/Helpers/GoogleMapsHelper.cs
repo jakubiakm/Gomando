@@ -6,12 +6,14 @@ using Android.Gms.Maps.Model;
 using Android.Graphics;
 using Android.Locations;
 using Android.Views;
+using Gomando.Logic;
 using Gomando.Model.Enums;
 using Gomando.Model.Models;
 namespace Gomando.Helpers
 {
     public class TrainingHelper
     {
+        public TrainingLogic logic = new TrainingLogic();
         public GoogleMap Map { get; set; }
         public Location CurrentLocation { get; set; }
         public TrainingState CurrentTrainingState { get; set; } = TrainingState.NotStarted;
@@ -39,6 +41,20 @@ namespace Gomando.Helpers
             PolyLines.ForEach(polyline => polyline.Remove());
             PolyLines = new List<Polyline>();
             MapRoadPolyLine = null;
+        }
+
+        public void SaveTraining(TrainingType type, DateTime start, double distance, double time)
+        {
+            if (CurrentTrainingLocalizations.Count != 0)
+                AllTrainingLocalizations.Add(CurrentTrainingLocalizations);
+            Training training = new Training()
+            {
+                Distance = distance,
+                Time = time,
+                StartDate = start,
+                EndDate = DateTime.Now
+            };
+            logic.SaveTraining(training, AllTrainingLocalizations);
         }
 
 
