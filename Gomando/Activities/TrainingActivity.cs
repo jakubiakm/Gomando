@@ -43,6 +43,11 @@ namespace Gomando.Activities
     {
         public int TrainingTime { get; set; } = 0;
         public double TrainingDistance { get; set; } = 0;
+        public double TrainingTempo { get; set; } = 0;
+        public double TrainingAverageTempo { get; set; } = 0;
+        public double TrainingVelocity { get; set; } = 0;
+        public double TrainingAverageVelocity { get; set; } = 0;
+
         public DateTime TrainingStartDate { get; set; } = DateTime.MinValue;
 
         MyLocationCallback locationCallback;
@@ -209,7 +214,24 @@ namespace Gomando.Activities
 
         private void OnLocationResult(object sender, Location e)
         {
-            trainingHelper.ChangeCurrentLocation(e);
+            double time, distance;
+            (time, distance) = trainingHelper.ChangeCurrentLocation(e);
+            if(time > -1 && distance > 0)
+            {
+                TrainingDistance += distance;
+                TrainingTempo = (time / 1000 / 60) / (distance);
+                TrainingVelocity = distance / (time / 1000 / 60 / 60);
+                TrainingAverageTempo = ((double)TrainingTime / 60) / TrainingDistance;
+                TrainingAverageVelocity = TrainingDistance / ((double)TrainingTime / 60 / 60);
+                RunOnUiThread(() =>
+                {
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_distance_value).Text = Math.Round(TrainingDistance, 2).ToString();
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_1_value).Text = Math.Round(TrainingTempo, 2).ToString();
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_2_value).Text = Math.Round(TrainingAverageTempo, 2).ToString();
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_3_value).Text = Math.Round(TrainingVelocity, 2).ToString();
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_4_value).Text = Math.Round(TrainingAverageVelocity, 2).ToString();
+                });
+            }
         }
 
         public void StartTraining()

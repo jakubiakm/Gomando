@@ -393,7 +393,7 @@
                   app:layout_widthPercent="20%"
                   android:layout_toRightOf="@id/text_training_sliding_drawer_training_parameter_3_value"
                   android:gravity="center"
-                  android:text="min/km"
+                  android:text="km/h"
                   android:textColor="@color/training_text_view_color"
                   android:textSize="10sp" />
             </android.support.percent.PercentRelativeLayout>
@@ -455,7 +455,7 @@
                   app:layout_widthPercent="20%"
                   android:layout_toRightOf="@id/text_training_sliding_drawer_training_parameter_4_value"
                   android:gravity="center"
-                  android:text="min/km"
+                  android:text="km/h"
                   android:textColor="@color/training_text_view_color"
                   android:textSize="10sp" />
             </android.support.percent.PercentRelativeLayout>

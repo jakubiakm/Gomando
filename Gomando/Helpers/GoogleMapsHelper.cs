@@ -58,8 +58,9 @@ namespace Gomando.Helpers
         }
 
 
-        public void ChangeCurrentLocation(Location location)
+        public (double, double) ChangeCurrentLocation(Location location)
         {
+            double elapsedTime = -1, distance = -1;
             if (MapsInitialized)
             {
                 if (CurrentTrainingState != TrainingState.Started)
@@ -85,6 +86,11 @@ namespace Gomando.Helpers
                         });
                         LastLocationAdded = true;
                     }
+                    else
+                    {
+                        distance = MathHelper.HaversineDistance(location.Latitude, location.Longitude, CurrentLocation.Latitude, CurrentLocation.Longitude);
+                        elapsedTime = (location.Time - CurrentLocation.Time);
+                    }
                     CurrentLocation = location;
                     AddLocationLineOnMap();
                     CurrentTrainingLocalizations.Add(new Localization
@@ -105,6 +111,7 @@ namespace Gomando.Helpers
                 CurrentLocation = location;
                 MapsInitialized = true;
             }
+            return (elapsedTime, distance);
         }
 
         private void AddLocationLineOnMap()
