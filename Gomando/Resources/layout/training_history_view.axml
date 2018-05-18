@@ -38,8 +38,17 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/training_history_text_view_color"
-                android:text="Distance"
+                android:text="Time"
                 android:id="@+id/trainingHistoryTimeTextView"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="4dp" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/training_history_text_view_color"
+                android:text="Velocity"
+                android:id="@+id/trainingHistoryVelocityTextView"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="4dp" />
         </LinearLayout>

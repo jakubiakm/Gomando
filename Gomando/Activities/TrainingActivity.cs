@@ -74,6 +74,7 @@ namespace Gomando.Activities
             GetGoogleMap();
             SetUpTimers();
             StartLocationUpdatesAsync();
+            ResetTrainingStatistics();
         }
 
         private void GetGoogleMap()
@@ -216,7 +217,7 @@ namespace Gomando.Activities
         {
             double time, distance;
             (time, distance) = trainingHelper.ChangeCurrentLocation(e);
-            if(time > -1 && distance > 0)
+            if (time > -1 && distance > 0)
             {
                 TrainingDistance += distance;
                 TrainingTempo = (time / 1000 / 60) / (distance);
@@ -225,11 +226,11 @@ namespace Gomando.Activities
                 TrainingAverageVelocity = TrainingDistance / ((double)TrainingTime / 60 / 60);
                 RunOnUiThread(() =>
                 {
-                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_distance_value).Text = Math.Round(TrainingDistance, 2).ToString();
-                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_1_value).Text = Math.Round(TrainingTempo, 2).ToString();
-                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_2_value).Text = Math.Round(TrainingAverageTempo, 2).ToString();
-                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_3_value).Text = Math.Round(TrainingVelocity, 2).ToString();
-                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_4_value).Text = Math.Round(TrainingAverageVelocity, 2).ToString();
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_distance_value).Text = string.Format("{0:0.00}", TrainingDistance);
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_1_value).Text = string.Format("{0:0.00}", TrainingDistance);
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_2_value).Text = string.Format("{0:0.00}", TrainingAverageTempo);
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_3_value).Text = string.Format("{0:0.00}", TrainingVelocity);
+                    FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_4_value).Text = string.Format("{0:0.00}", TrainingAverageVelocity);
                 });
             }
         }
@@ -239,7 +240,7 @@ namespace Gomando.Activities
             TrainingTime = 0;
             TrainingDistance = 0;
             TrainingStartDate = DateTime.Now;
-            
+
             trainingHelper.Reset();
             CurrentTrainingState = TrainingState.Started;
             trainingHelper.CurrentTrainingState = TrainingState.Started;
@@ -286,6 +287,7 @@ namespace Gomando.Activities
             trainingHelper.SaveTraining(CurrentTrainingType, TrainingStartDate, TrainingDistance, TrainingTime);
             trainingHelper.Reset();
             CurrentTrainingState = TrainingState.NotStarted;
+            ResetTrainingStatistics();
             trainingHelper.CurrentTrainingState = TrainingState.NotStarted;
             var button = FindViewById(Resource.Id.button_training_left);
             var layoutParams = (RelativeLayout.LayoutParams)button.LayoutParameters;
@@ -295,6 +297,26 @@ namespace Gomando.Activities
             FindViewById(Resource.Id.button_training_left).Visibility = ViewStates.Visible;
             FindViewById(Resource.Id.button_training_right).Visibility = ViewStates.Gone;
             FindViewById<ImageButton>(Resource.Id.button_training_left).SetImageResource(Resource.Drawable.btn_training_start);
+        }
+
+        private void ResetTrainingStatistics()
+        {
+            TrainingDistance = 0;
+            TrainingTempo = 0;
+            TrainingVelocity = 0;
+            TrainingAverageTempo = 0;
+            TrainingAverageVelocity = 0;
+            TrainingTime = 0;
+
+            RunOnUiThread(() =>
+            {
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_time_value).Text = MathHelper.ConvertSecondsToTimeString(TrainingTime);
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_distance_value).Text = string.Format("{0:0.00}", TrainingDistance);
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_1_value).Text = string.Format("{0:0.00}", TrainingDistance);
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_2_value).Text = string.Format("{0:0.00}", TrainingAverageTempo);
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_3_value).Text = string.Format("{0:0.00}", TrainingVelocity);
+                FindViewById<TextView>(Resource.Id.text_training_sliding_drawer_training_parameter_4_value).Text = string.Format("{0:0.00}", TrainingAverageVelocity);
+            });
         }
 
         #region UI EVENTS

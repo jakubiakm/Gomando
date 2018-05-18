@@ -54,16 +54,16 @@ namespace Gomando.Adapters
             TrainingHistoryHolder trainingHistoryHolder = holder as TrainingHistoryHolder;
             string distanceText = "";
             if (ShowKilometerDistanceUnit)
-                distanceText = $"Dystans: {trainings[position].Distance.ToString()} kilometrów";
+                distanceText = $"Dystans: {string.Format("0:0.00", trainings[position].Distance)} km";
             else
                 distanceText = $"Dystans: {(trainings[position].Distance * 0.62).ToString()} mil";
 
             trainingHistoryHolder.Date.Text = $"{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
-            trainingHistoryHolder.Time.Text = $"Czas: {trainings[position].Time.ToString()} sekund";
+            trainingHistoryHolder.Time.Text = $"Czas: {TimeSpan.FromSeconds(trainings[position].Time).ToString(@"hh\h\:mm\m\:ss\s")}";
             trainingHistoryHolder.Distance.Text = distanceText;
+            trainingHistoryHolder.Velocity.Text = $"Średnia prędkość: {string.Format("{0:0.00}", trainings[position].Distance / (trainings[position].Time / 3600))} km/h";
         }
-
-        // Return the number of photos available in the photo album:
+        
         public override int ItemCount
         {
             get { return trainings.Count(); }
