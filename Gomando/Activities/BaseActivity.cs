@@ -7,12 +7,19 @@ using Android.Support.Design.Widget;
 using Android.Content;
 using Auth0.OidcClient;
 using IdentityModel.OidcClient;
+using Android;
+using Android.Content.PM;
 
 namespace Gomando.Activities
 {
     [Activity(Label = "Gomando")]
     public class BaseActivity : AppCompatActivity
     {
+        readonly string[] PermissionsLocation = {
+            Manifest.Permission.AccessCoarseLocation,
+            Manifest.Permission.AccessFineLocation };
+        const int RequestLocationId = 0;
+
         protected DrawerLayout mDrawer;
         protected NavigationView mNavigationView;
         protected Android.Support.V7.Widget.Toolbar mToolbar;
@@ -24,6 +31,7 @@ namespace Gomando.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            GetLocationPermission();
             SetContentView(Resource.Layout.navigation_drawer_base_layout);
             //SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_navigation_drawer);
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -68,6 +76,18 @@ namespace Gomando.Activities
                     break;
 
             }
+        }
+
+        void GetLocationPermission()
+        {
+            if ((int)Build.VERSION.SdkInt < 23)
+                return;
+            const string permission = Manifest.Permission.AccessFineLocation;
+            if (CheckSelfPermission(permission) == (int)Permission.Granted)
+            {
+                return;
+            }
+            RequestPermissions(PermissionsLocation, RequestLocationId);
         }
     }
 }

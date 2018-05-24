@@ -54,9 +54,9 @@ namespace Gomando.Adapters
             TrainingHistoryHolder trainingHistoryHolder = holder as TrainingHistoryHolder;
             string distanceText = "";
             if (ShowKilometerDistanceUnit)
-                distanceText = $"Dystans: {string.Format("0:0.00", trainings[position].Distance)} km";
+                distanceText = $"Dystans: {string.Format("{0:0.00}", trainings[position].Distance)} km";
             else
-                distanceText = $"Dystans: {(trainings[position].Distance * 0.62).ToString()} mil";
+                distanceText = $"Dystans: {string.Format("{0:0.00}", (trainings[position].Distance * 0.62))} mil";
 
             trainingHistoryHolder.Date.Text = $"{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
             trainingHistoryHolder.Time.Text = $"Czas: {TimeSpan.FromSeconds(trainings[position].Time).ToString(@"hh\h\:mm\m\:ss\s")}";

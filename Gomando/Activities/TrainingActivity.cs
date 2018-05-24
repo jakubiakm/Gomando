@@ -32,7 +32,8 @@ namespace Gomando.Activities
         }
     }
 
-    [Activity(Label = "Trening", MainLauncher = true, LaunchMode = LaunchMode.SingleTask)]
+    [Activity(Label = "Trening", MainLauncher = true, LaunchMode = LaunchMode.SingleTask, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+    ScreenOrientation = ScreenOrientation.Portrait)]
     [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
