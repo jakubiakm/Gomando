@@ -38,7 +38,7 @@ namespace Gomando.Activities
         {
             switch (item.ItemId)
             {
-                
+
                 case Resource.Id.action_preferences:
                     PreferenceFragment pref = new PrefsFragment(this);
                     FragmentTransaction transaction = FragmentManager.BeginTransaction();
@@ -60,9 +60,9 @@ namespace Gomando.Activities
 
         void GetUserPreferences()
         {
-            var SP = PreferenceManager.GetDefaultSharedPreferences(this);
-            ShowKilometerDistanceUnit = SP.GetBoolean("kilometer_preference", true);
-            SortDescending = SP.GetBoolean("sort_preference", true);
+            var preferences = PreferenceManager.GetDefaultSharedPreferences(this);
+            ShowKilometerDistanceUnit = preferences.GetBoolean("kilometer_preference", true);
+            SortDescending = preferences.GetBoolean("sort_preference", true);
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -78,9 +78,6 @@ namespace Gomando.Activities
 
             List<Training> trainings = trainingHistoryLogic.GetAllTrainings();
 
-
-            mButtonAddManualTraining = FindViewById<FloatingActionButton>(Resource.Id.trainingHistoryAddManualTrainingButton);
-            mButtonAddManualTraining.Click += MButtonAddManualTraining_Click;
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.trainingHistoryRecyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.SetLayoutManager(mLayoutManager);

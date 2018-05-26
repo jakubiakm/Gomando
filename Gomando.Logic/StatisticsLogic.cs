@@ -21,6 +21,20 @@ namespace Gomando.Logic
             var trainingTypeStatistics = new TrainingTypeStatistic();
             var trainings = trainingRepository.GetTrainings();
             
+            if(trainings.Count == trainings.Count(t => t.Type == TrainingType.Running))
+            {
+                foreach(var t in trainings)
+                {
+                    if (t.Distance > 200)
+                    {
+                        t.Type = TrainingType.Skating;
+                    }
+                    else
+                        t.Type = TrainingType.Cycling;
+                    trainingRepository.SaveTraining(t);
+                }
+            }
+
             if (type == null)
             {
 

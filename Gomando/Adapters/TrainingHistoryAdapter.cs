@@ -10,8 +10,24 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-
+using Gomando.Model.Enums;
 using Gomando.Model.Models;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Gomando.Helpers;
+using Gomando.Logic;
+using Gomando.Model.Models;
+
 
 namespace Gomando.Adapters
 {
@@ -58,12 +74,12 @@ namespace Gomando.Adapters
             else
                 distanceText = $"Dystans: {string.Format("{0:0.00}", (trainings[position].Distance * 0.62))} mil";
 
-            trainingHistoryHolder.Date.Text = $"{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
+            trainingHistoryHolder.Date.Text = $"{ConvertTrainingTypeToName(trainings[position].Type)}\n{trainings[position].StartDate.ToShortDateString()}, {trainings[position].StartDate.ToLongTimeString()}";
             trainingHistoryHolder.Time.Text = $"Czas: {TimeSpan.FromSeconds(trainings[position].Time).ToString(@"hh\h\:mm\m\:ss\s")}";
             trainingHistoryHolder.Distance.Text = distanceText;
             trainingHistoryHolder.Velocity.Text = $"Średnia prędkość: {string.Format("{0:0.00}", trainings[position].Distance / (trainings[position].Time / 3600))} km/h";
         }
-        
+
         public override int ItemCount
         {
             get { return trainings.Count(); }
@@ -74,6 +90,32 @@ namespace Gomando.Adapters
         {
             if (ItemClick != null)
                 ItemClick(this, position);
+        }
+
+        private string ConvertTrainingTypeToName(TrainingType type)
+        {
+            string trainingName = "";
+            switch (type)
+            {
+                case TrainingType.Cycling:
+                    trainingName = "Kolarstwo";
+                    break;
+                case TrainingType.Hiking:
+                    trainingName = "Wspinaczka górska";
+                    break;
+                case TrainingType.Running:
+                    trainingName = "Bieganie";
+                    break;
+                case TrainingType.Skating:
+                    trainingName = "Jazda na rolkach";
+                    break;
+                case TrainingType.Walking:
+                    trainingName = "Chodzenie";
+                    break;
+                default:
+                    throw new Exception("Nie znaleziono typu treningu");
+            }
+            return trainingName;
         }
     }
 }
