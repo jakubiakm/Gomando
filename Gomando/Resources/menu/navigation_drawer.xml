@@ -10,6 +10,10 @@
       android:id="@+id/menu_navigation_training_history"
       android:title="Historia treningów"
       android:icon="@drawable/ic_menu_history"/>
+    <item
+          android:id="@+id/menu_navigation_statistics"
+          android:title="Statystyki"
+          android:icon="@drawable/ic_menu_statistics"/>
   </group>
   <group android:checkableBehavior="single"
          android:id="@+id/group2">

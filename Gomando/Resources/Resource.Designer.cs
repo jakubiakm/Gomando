@@ -107,6 +107,22 @@ namespace Gomando
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int training_type_array = 2131558400;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -2475,26 +2491,26 @@ namespace Gomando
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02009b
-			public const int avd_hide_password_1 = 2130837659;
-			
 			// aapt resource value: 0x7f02009c
-			public const int avd_hide_password_2 = 2130837660;
+			public const int avd_hide_password_1 = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int avd_hide_password_3 = 2130837661;
+			public const int avd_hide_password_2 = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int avd_hide_password_3 = 2130837662;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02009e
-			public const int avd_show_password_1 = 2130837662;
-			
 			// aapt resource value: 0x7f02009f
-			public const int avd_show_password_2 = 2130837663;
+			public const int avd_show_password_1 = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int avd_show_password_3 = 2130837664;
+			public const int avd_show_password_2 = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int avd_show_password_3 = 2130837665;
 			
 			// aapt resource value: 0x7f020055
 			public const int btn_training_pause = 2130837589;
@@ -2611,100 +2627,103 @@ namespace Gomando
 			public const int ic_menu_profile = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ic_menu_training = 2130837627;
+			public const int ic_menu_statistics = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ic_settings = 2130837628;
+			public const int ic_menu_training = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_training_parameter_average_tempo = 2130837629;
+			public const int ic_settings = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_training_parameter_average_velocity = 2130837630;
+			public const int ic_training_parameter_average_tempo = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_training_parameter_distance = 2130837631;
+			public const int ic_training_parameter_average_velocity = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_training_parameter_pulse = 2130837632;
+			public const int ic_training_parameter_distance = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_training_parameter_tempo = 2130837633;
+			public const int ic_training_parameter_pulse = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_training_parameter_time = 2130837634;
+			public const int ic_training_parameter_tempo = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_training_parameter_velocity = 2130837635;
+			public const int ic_training_parameter_time = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_training_type_cycling = 2130837636;
+			public const int ic_training_parameter_velocity = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_training_type_running = 2130837637;
+			public const int ic_training_type_cycling = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_training_type_skating = 2130837638;
+			public const int ic_training_type_running = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_training_type_walking = 2130837639;
+			public const int ic_training_type_skating = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int nav_item_background = 2130837640;
+			public const int ic_training_type_walking = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int nav_item_icon_tint = 2130837641;
+			public const int nav_item_background = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int nav_item_text_color = 2130837642;
+			public const int nav_item_icon_tint = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int navigation_drawer_header_image = 2130837643;
+			public const int nav_item_text_color = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int navigation_empty_icon = 2130837644;
+			public const int navigation_drawer_header_image = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int notification_action_background = 2130837645;
+			public const int navigation_empty_icon = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int notification_bg = 2130837646;
+			public const int notification_action_background = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int notification_bg_low = 2130837647;
+			public const int notification_bg = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int notification_bg_low_normal = 2130837648;
+			public const int notification_bg_low = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int notification_bg_low_pressed = 2130837649;
+			public const int notification_bg_low_normal = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int notification_bg_normal = 2130837650;
+			public const int notification_bg_low_pressed = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int notification_bg_normal_pressed = 2130837651;
+			public const int notification_bg_normal = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int notification_icon_background = 2130837652;
-			
-			// aapt resource value: 0x7f020099
-			public const int notification_template_icon_bg = 2130837657;
-			
-			// aapt resource value: 0x7f02009a
-			public const int notification_template_icon_low_bg = 2130837658;
+			public const int notification_bg_normal_pressed = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int notification_tile_bg = 2130837653;
+			public const int notification_icon_background = 2130837653;
+			
+			// aapt resource value: 0x7f02009a
+			public const int notification_template_icon_bg = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int notification_template_icon_low_bg = 2130837659;
 			
 			// aapt resource value: 0x7f020096
-			public const int notify_panel_notification_icon_bg = 2130837654;
+			public const int notification_tile_bg = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int tooltip_frame_dark = 2130837655;
+			public const int notify_panel_notification_icon_bg = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int tooltip_frame_light = 2130837656;
+			public const int tooltip_frame_dark = 2130837656;
+			
+			// aapt resource value: 0x7f020099
+			public const int tooltip_frame_light = 2130837657;
 			
 			static Drawable()
 			{
@@ -2788,8 +2807,8 @@ namespace Gomando
 			// aapt resource value: 0x7f0a0065
 			public const int action_mode_close_button = 2131361893;
 			
-			// aapt resource value: 0x7f0a00f7
-			public const int action_preferences = 2131362039;
+			// aapt resource value: 0x7f0a00fa
+			public const int action_preferences = 2131362042;
 			
 			// aapt resource value: 0x7f0a00b3
 			public const int action_text = 2131361971;
@@ -2848,14 +2867,14 @@ namespace Gomando
 			// aapt resource value: 0x7f0a006c
 			public const int buttonPanel = 2131361900;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int button_training_left = 2131362015;
+			// aapt resource value: 0x7f0a00e2
+			public const int button_training_left = 2131362018;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int button_training_right = 2131362016;
+			// aapt resource value: 0x7f0a00e3
+			public const int button_training_right = 2131362019;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int button_training_sliding_drawer_handle = 2131361999;
+			// aapt resource value: 0x7f0a00d2
+			public const int button_training_sliding_drawer_handle = 2131362002;
 			
 			// aapt resource value: 0x7f0a00b5
 			public const int cancel_action = 2131361973;
@@ -2968,17 +2987,17 @@ namespace Gomando
 			// aapt resource value: 0x7f0a0061
 			public const int forever = 2131361889;
 			
-			// aapt resource value: 0x7f0a00c5
-			public const int fragment_training_map = 2131361989;
+			// aapt resource value: 0x7f0a00c7
+			public const int fragment_training_map = 2131361991;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int ghost_view = 2131361802;
 			
-			// aapt resource value: 0x7f0a00f8
-			public const int group1 = 2131362040;
-			
 			// aapt resource value: 0x7f0a00fb
-			public const int group2 = 2131362043;
+			public const int group1 = 2131362043;
+			
+			// aapt resource value: 0x7f0a00ff
+			public const int group2 = 2131362047;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int home = 2131361797;
@@ -3007,26 +3026,26 @@ namespace Gomando
 			// aapt resource value: 0x7f0a00af
 			public const int image_navigation_drawer_user = 2131361967;
 			
-			// aapt resource value: 0x7f0a00d5
-			public const int image_training_sliding_drawer_distance = 2131362005;
+			// aapt resource value: 0x7f0a00d8
+			public const int image_training_sliding_drawer_distance = 2131362008;
 			
-			// aapt resource value: 0x7f0a00d1
-			public const int image_training_sliding_drawer_time = 2131362001;
+			// aapt resource value: 0x7f0a00d4
+			public const int image_training_sliding_drawer_time = 2131362004;
 			
-			// aapt resource value: 0x7f0a00e3
-			public const int image_training_sliding_drawer_training_parameter_1 = 2131362019;
+			// aapt resource value: 0x7f0a00e6
+			public const int image_training_sliding_drawer_training_parameter_1 = 2131362022;
 			
-			// aapt resource value: 0x7f0a00e8
-			public const int image_training_sliding_drawer_training_parameter_2 = 2131362024;
+			// aapt resource value: 0x7f0a00eb
+			public const int image_training_sliding_drawer_training_parameter_2 = 2131362027;
 			
-			// aapt resource value: 0x7f0a00ed
-			public const int image_training_sliding_drawer_training_parameter_3 = 2131362029;
+			// aapt resource value: 0x7f0a00f0
+			public const int image_training_sliding_drawer_training_parameter_3 = 2131362032;
 			
-			// aapt resource value: 0x7f0a00f2
-			public const int image_training_sliding_drawer_training_parameter_4 = 2131362034;
+			// aapt resource value: 0x7f0a00f5
+			public const int image_training_sliding_drawer_training_parameter_4 = 2131362037;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int image_training_training_type = 2131362012;
+			// aapt resource value: 0x7f0a00df
+			public const int image_training_training_type = 2131362015;
 			
 			// aapt resource value: 0x7f0a00be
 			public const int info = 2131361982;
@@ -3040,35 +3059,35 @@ namespace Gomando
 			// aapt resource value: 0x7f0a009a
 			public const int largeLabel = 2131361946;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int layout_training_sliding_drawer_content = 2131361998;
+			// aapt resource value: 0x7f0a00d1
+			public const int layout_training_sliding_drawer_content = 2131362001;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int layout_training_sliding_drawer_distance = 2131362004;
+			// aapt resource value: 0x7f0a00d7
+			public const int layout_training_sliding_drawer_distance = 2131362007;
 			
-			// aapt resource value: 0x7f0a00d0
-			public const int layout_training_sliding_drawer_time = 2131362000;
-			
-			// aapt resource value: 0x7f0a00de
-			public const int layout_training_sliding_drawer_training_buttons = 2131362014;
+			// aapt resource value: 0x7f0a00d3
+			public const int layout_training_sliding_drawer_time = 2131362003;
 			
 			// aapt resource value: 0x7f0a00e1
-			public const int layout_training_sliding_drawer_training_parameter_1 = 2131362017;
+			public const int layout_training_sliding_drawer_training_buttons = 2131362017;
 			
-			// aapt resource value: 0x7f0a00e6
-			public const int layout_training_sliding_drawer_training_parameter_2 = 2131362022;
+			// aapt resource value: 0x7f0a00e4
+			public const int layout_training_sliding_drawer_training_parameter_1 = 2131362020;
 			
-			// aapt resource value: 0x7f0a00eb
-			public const int layout_training_sliding_drawer_training_parameter_3 = 2131362027;
+			// aapt resource value: 0x7f0a00e9
+			public const int layout_training_sliding_drawer_training_parameter_2 = 2131362025;
 			
-			// aapt resource value: 0x7f0a00f0
-			public const int layout_training_sliding_drawer_training_parameter_4 = 2131362032;
+			// aapt resource value: 0x7f0a00ee
+			public const int layout_training_sliding_drawer_training_parameter_3 = 2131362030;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int layout_training_sliding_drawer_training_type = 2131362010;
+			// aapt resource value: 0x7f0a00f3
+			public const int layout_training_sliding_drawer_training_parameter_4 = 2131362035;
 			
-			// aapt resource value: 0x7f0a00d9
-			public const int layout_training_sliding_drawer_training_type_training_buttons = 2131362009;
+			// aapt resource value: 0x7f0a00dd
+			public const int layout_training_sliding_drawer_training_type = 2131362013;
+			
+			// aapt resource value: 0x7f0a00dc
+			public const int layout_training_sliding_drawer_training_type_training_buttons = 2131362012;
 			
 			// aapt resource value: 0x7f0a0052
 			public const int left = 2131361874;
@@ -3088,23 +3107,26 @@ namespace Gomando
 			// aapt resource value: 0x7f0a006a
 			public const int list_item = 2131361898;
 			
-			// aapt resource value: 0x7f0a00f6
-			public const int masked = 2131362038;
+			// aapt resource value: 0x7f0a00f9
+			public const int masked = 2131362041;
 			
 			// aapt resource value: 0x7f0a00b7
 			public const int media_actions = 2131361975;
 			
+			// aapt resource value: 0x7f0a0100
+			public const int menu_navigation_profile = 2131362048;
+			
+			// aapt resource value: 0x7f0a00fe
+			public const int menu_navigation_statistics = 2131362046;
+			
 			// aapt resource value: 0x7f0a00fc
-			public const int menu_navigation_profile = 2131362044;
+			public const int menu_navigation_training = 2131362044;
 			
-			// aapt resource value: 0x7f0a00f9
-			public const int menu_navigation_training = 2131362041;
+			// aapt resource value: 0x7f0a00fd
+			public const int menu_navigation_training_history = 2131362045;
 			
-			// aapt resource value: 0x7f0a00fa
-			public const int menu_navigation_training_history = 2131362042;
-			
-			// aapt resource value: 0x7f0a00c4
-			public const int message = 2131361988;
+			// aapt resource value: 0x7f0a00c6
+			public const int message = 2131361990;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int middle = 2131361851;
@@ -3247,8 +3269,8 @@ namespace Gomando
 			// aapt resource value: 0x7f0a002f
 			public const int showTitle = 2131361839;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int sliding_drawer_training = 2131361997;
+			// aapt resource value: 0x7f0a00d0
+			public const int sliding_drawer_training = 2131362000;
 			
 			// aapt resource value: 0x7f0a0099
 			public const int smallLabel = 2131361945;
@@ -3322,62 +3344,62 @@ namespace Gomando
 			// aapt resource value: 0x7f0a00b0
 			public const int text_navigation_drawer_user = 2131361968;
 			
-			// aapt resource value: 0x7f0a00d6
-			public const int text_training_sliding_drawer_distance_header = 2131362006;
-			
-			// aapt resource value: 0x7f0a00d8
-			public const int text_training_sliding_drawer_distance_unit = 2131362008;
-			
-			// aapt resource value: 0x7f0a00d7
-			public const int text_training_sliding_drawer_distance_value = 2131362007;
-			
-			// aapt resource value: 0x7f0a00d2
-			public const int text_training_sliding_drawer_time_header = 2131362002;
-			
-			// aapt resource value: 0x7f0a00d3
-			public const int text_training_sliding_drawer_time_value = 2131362003;
-			
-			// aapt resource value: 0x7f0a00e2
-			public const int text_training_sliding_drawer_training_parameter_1_header = 2131362018;
-			
-			// aapt resource value: 0x7f0a00e5
-			public const int text_training_sliding_drawer_training_parameter_1_unit = 2131362021;
-			
-			// aapt resource value: 0x7f0a00e4
-			public const int text_training_sliding_drawer_training_parameter_1_value = 2131362020;
-			
-			// aapt resource value: 0x7f0a00e7
-			public const int text_training_sliding_drawer_training_parameter_2_header = 2131362023;
-			
-			// aapt resource value: 0x7f0a00ea
-			public const int text_training_sliding_drawer_training_parameter_2_unit = 2131362026;
-			
-			// aapt resource value: 0x7f0a00e9
-			public const int text_training_sliding_drawer_training_parameter_2_value = 2131362025;
-			
-			// aapt resource value: 0x7f0a00ec
-			public const int text_training_sliding_drawer_training_parameter_3_header = 2131362028;
-			
-			// aapt resource value: 0x7f0a00ef
-			public const int text_training_sliding_drawer_training_parameter_3_unit = 2131362031;
-			
-			// aapt resource value: 0x7f0a00ee
-			public const int text_training_sliding_drawer_training_parameter_3_value = 2131362030;
-			
-			// aapt resource value: 0x7f0a00f1
-			public const int text_training_sliding_drawer_training_parameter_4_header = 2131362033;
-			
-			// aapt resource value: 0x7f0a00f4
-			public const int text_training_sliding_drawer_training_parameter_4_unit = 2131362036;
-			
-			// aapt resource value: 0x7f0a00f3
-			public const int text_training_sliding_drawer_training_parameter_4_value = 2131362035;
+			// aapt resource value: 0x7f0a00d9
+			public const int text_training_sliding_drawer_distance_header = 2131362009;
 			
 			// aapt resource value: 0x7f0a00db
-			public const int text_training_training_type_header = 2131362011;
+			public const int text_training_sliding_drawer_distance_unit = 2131362011;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int text_training_training_type_name = 2131362013;
+			// aapt resource value: 0x7f0a00da
+			public const int text_training_sliding_drawer_distance_value = 2131362010;
+			
+			// aapt resource value: 0x7f0a00d5
+			public const int text_training_sliding_drawer_time_header = 2131362005;
+			
+			// aapt resource value: 0x7f0a00d6
+			public const int text_training_sliding_drawer_time_value = 2131362006;
+			
+			// aapt resource value: 0x7f0a00e5
+			public const int text_training_sliding_drawer_training_parameter_1_header = 2131362021;
+			
+			// aapt resource value: 0x7f0a00e8
+			public const int text_training_sliding_drawer_training_parameter_1_unit = 2131362024;
+			
+			// aapt resource value: 0x7f0a00e7
+			public const int text_training_sliding_drawer_training_parameter_1_value = 2131362023;
+			
+			// aapt resource value: 0x7f0a00ea
+			public const int text_training_sliding_drawer_training_parameter_2_header = 2131362026;
+			
+			// aapt resource value: 0x7f0a00ed
+			public const int text_training_sliding_drawer_training_parameter_2_unit = 2131362029;
+			
+			// aapt resource value: 0x7f0a00ec
+			public const int text_training_sliding_drawer_training_parameter_2_value = 2131362028;
+			
+			// aapt resource value: 0x7f0a00ef
+			public const int text_training_sliding_drawer_training_parameter_3_header = 2131362031;
+			
+			// aapt resource value: 0x7f0a00f2
+			public const int text_training_sliding_drawer_training_parameter_3_unit = 2131362034;
+			
+			// aapt resource value: 0x7f0a00f1
+			public const int text_training_sliding_drawer_training_parameter_3_value = 2131362033;
+			
+			// aapt resource value: 0x7f0a00f4
+			public const int text_training_sliding_drawer_training_parameter_4_header = 2131362036;
+			
+			// aapt resource value: 0x7f0a00f7
+			public const int text_training_sliding_drawer_training_parameter_4_unit = 2131362039;
+			
+			// aapt resource value: 0x7f0a00f6
+			public const int text_training_sliding_drawer_training_parameter_4_value = 2131362038;
+			
+			// aapt resource value: 0x7f0a00de
+			public const int text_training_training_type_header = 2131362014;
+			
+			// aapt resource value: 0x7f0a00e0
+			public const int text_training_training_type_name = 2131362016;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int textinput_counter = 2131361812;
@@ -3409,26 +3431,35 @@ namespace Gomando
 			// aapt resource value: 0x7f0a009d
 			public const int touch_outside = 2131361949;
 			
-			// aapt resource value: 0x7f0a00c6
-			public const int trainingDetailsDeleteTrainingButton = 2131361990;
-			
-			// aapt resource value: 0x7f0a00c7
-			public const int trainingHistoryAddManualTrainingButton = 2131361991;
+			// aapt resource value: 0x7f0a00c8
+			public const int trainingDetailsDeleteTrainingButton = 2131361992;
 			
 			// aapt resource value: 0x7f0a00c9
-			public const int trainingHistoryDateTextView = 2131361993;
+			public const int trainingHistoryAddManualTrainingButton = 2131361993;
 			
 			// aapt resource value: 0x7f0a00ca
-			public const int trainingHistoryDistanceTextView = 2131361994;
-			
-			// aapt resource value: 0x7f0a00c8
-			public const int trainingHistoryRecyclerView = 2131361992;
-			
-			// aapt resource value: 0x7f0a00cb
-			public const int trainingHistoryTimeTextView = 2131361995;
+			public const int trainingHistoryAddManualTrainingButton2 = 2131361994;
 			
 			// aapt resource value: 0x7f0a00cc
-			public const int trainingHistoryVelocityTextView = 2131361996;
+			public const int trainingHistoryDateTextView = 2131361996;
+			
+			// aapt resource value: 0x7f0a00cd
+			public const int trainingHistoryDistanceTextView = 2131361997;
+			
+			// aapt resource value: 0x7f0a00cb
+			public const int trainingHistoryRecyclerView = 2131361995;
+			
+			// aapt resource value: 0x7f0a00ce
+			public const int trainingHistoryTimeTextView = 2131361998;
+			
+			// aapt resource value: 0x7f0a00cf
+			public const int trainingHistoryVelocityTextView = 2131361999;
+			
+			// aapt resource value: 0x7f0a00c5
+			public const int training_statistics_content = 2131361989;
+			
+			// aapt resource value: 0x7f0a00c4
+			public const int training_type_spinner = 2131361988;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int transition_current_scene = 2131361807;
@@ -3466,8 +3497,8 @@ namespace Gomando
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00f5
-			public const int visible = 2131362037;
+			// aapt resource value: 0x7f0a00f8
+			public const int visible = 2131362040;
 			
 			// aapt resource value: 0x7f0a0025
 			public const int wide = 2131361829;
@@ -3730,25 +3761,28 @@ namespace Gomando
 			public const int select_dialog_singlechoice_material = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int support_simple_spinner_dropdown_item = 2130903104;
+			public const int statistics_layout = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int toolbar = 2130903105;
+			public const int support_simple_spinner_dropdown_item = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int tooltip = 2130903106;
+			public const int toolbar = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int training_details_layout = 2130903107;
+			public const int tooltip = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int training_history_layout = 2130903108;
+			public const int training_details_layout = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int training_history_view = 2130903109;
+			public const int training_history_layout = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int training_layout = 2130903110;
+			public const int training_history_view = 2130903110;
+			
+			// aapt resource value: 0x7f030047
+			public const int training_layout = 2130903111;
 			
 			static Layout()
 			{
@@ -3763,11 +3797,11 @@ namespace Gomando
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0d0000
-			public const int actions_menu = 2131558400;
+			// aapt resource value: 0x7f0e0000
+			public const int actions_menu = 2131623936;
 			
-			// aapt resource value: 0x7f0d0001
-			public const int navigation_drawer = 2131558401;
+			// aapt resource value: 0x7f0e0001
+			public const int navigation_drawer = 2131623937;
 			
 			static Menu()
 			{
@@ -3964,6 +3998,9 @@ namespace Gomando
 			
 			// aapt resource value: 0x7f070025
 			public const int status_bar_notification_info_overflow = 2131165221;
+			
+			// aapt resource value: 0x7f070044
+			public const int training_type_all_name = 2131165252;
 			
 			// aapt resource value: 0x7f070042
 			public const int training_type_cycling_name = 2131165250;

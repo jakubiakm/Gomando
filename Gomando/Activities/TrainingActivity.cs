@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -13,6 +14,7 @@ using Android.Gms.Maps;
 using Android.Locations;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -42,6 +44,14 @@ namespace Gomando.Activities
     DataPathPrefix = "/android/gomando.gomando/callback")]
     public class TrainingActivity : BaseActivity, IOnMapReadyCallback
     {
+
+        readonly string[] PermissionsLocation =
+        {
+            Manifest.Permission.AccessCoarseLocation,
+            Manifest.Permission.AccessFineLocation
+        };
+
+        const int RequestLocationId = 0;
         public int TrainingTime { get; set; } = 0;
         public double TrainingDistance { get; set; } = 0;
         public double TrainingTempo { get; set; } = 0;
@@ -71,11 +81,7 @@ namespace Gomando.Activities
             mDrawer.AddView(contentView, 0);
 
             AddClickEventsToControls();
-
-            GetGoogleMap();
-            SetUpTimers();
-            StartLocationUpdatesAsync();
-            ResetTrainingStatistics();
+            GetLocationPermission();
         }
 
         private void GetGoogleMap()
@@ -208,9 +214,8 @@ namespace Gomando.Activities
 
                 await locationClient.RequestLocationUpdatesAsync(locationRequest, locationCallback);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //Handle exception here if failed to register
             }
         }
 
@@ -320,12 +325,46 @@ namespace Gomando.Activities
             });
         }
 
+        void GetLocationPermission()
+        {
+            if ((int)Build.VERSION.SdkInt < 23)
+                return;
+            const string permission = Manifest.Permission.AccessFineLocation;
+            if (CheckSelfPermission(permission) == (int)Permission.Granted)
+            {
+                GetGoogleMap();
+                SetUpTimers();
+                StartLocationUpdatesAsync();
+                ResetTrainingStatistics();
+                return;
+            }
+            RequestPermissions(PermissionsLocation, RequestLocationId);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            switch (requestCode)
+            {
+                case RequestLocationId:
+                    {
+                        if (grantResults[0] == Permission.Granted)
+                        {
+                            GetGoogleMap();
+                            SetUpTimers();
+                            StartLocationUpdatesAsync();
+                            ResetTrainingStatistics();
+                        }
+                    }
+                    break;
+            }
+        }
+
         #region UI EVENTS
         protected override async void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
 
-            if (intent.DataString != null)
+            if (intent.DataString != null && authorizeState != null)
             {
                 var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
             }

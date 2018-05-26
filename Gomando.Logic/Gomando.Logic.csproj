@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AddManualTrainingLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticsLogic.cs" />
     <Compile Include="TrainingDetailsLogic.cs" />
     <Compile Include="TrainingHistoryLogic.cs" />
     <Compile Include="TrainingLogic.cs" />

@@ -63,7 +63,7 @@ namespace Gomando.Activities
             // begin new code:
             int width = Resources.DisplayMetrics.WidthPixels;
             int height = Resources.DisplayMetrics.HeightPixels;
-            int padding = (int)(width * 0.05); // offset from edges of the map 5% of screen
+            int padding = (int)(width * 0.05);
 
             CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLngBounds(bounds, width, height, padding);
             googleMap.AnimateCamera(cameraUpdate);
@@ -77,20 +77,11 @@ namespace Gomando.Activities
             View contentView = inflater.Inflate(Resource.Layout.training_details_layout, null, false);
             mDrawer.AddView(contentView, 0);
 
-            //DistanceTextView = FindViewById<EditText>(Resource.Id.trainingDetailsDistanceEditText);
-            //TimeTextView = FindViewById<EditText>(Resource.Id.trainingDetailsTimeEditText);
-            //EditTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsEditTrainingButton);
             DeleteTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsDeleteTrainingButton);
-
-
 
             int trainingId = Intent.GetIntExtra("TrainingId", 0);
             Training = trainingDetailsLogic.GetTraining(trainingId);
 
-            //DistanceTextView.Text = Training.Distance.ToString();
-            //TimeTextView.Text = Training.Time.ToString();
-
-            //EditTrainingButton.Click += EditTrainingButton_Click;
             DeleteTrainingButton.Click += DeleteTrainingButton_Click;
 
             var mapFragment = FragmentManager.FindFragmentById(Resource.Id.fragment_training_map) as MapFragment;
@@ -99,8 +90,16 @@ namespace Gomando.Activities
 
         private void DeleteTrainingButton_Click(object sender, EventArgs e)
         {
-            trainingDetailsLogic.DeleteTraining(Training.Id);
-            Finish();
+            var builder = new AlertDialog.Builder(this);
+            builder.SetMessage("Czy na pewno chcesz usunąć trening?");
+            builder.SetPositiveButton("Tak", (s, ew) => 
+            {
+                trainingDetailsLogic.DeleteTraining(Training.Id);
+                Finish();
+            });
+            builder.SetNegativeButton("Nie", (s, ew) => { });
+            builder.Create().Show();
+
         }
 
         private void EditTrainingButton_Click(object sender, EventArgs e)

@@ -52,7 +52,8 @@ namespace Gomando.Helpers
                 Distance = distance,
                 Time = time,
                 StartDate = start,
-                EndDate = DateTime.Now
+                EndDate = DateTime.Now,
+                Type = type
             };
             logic.SaveTraining(training, AllTrainingLocalizations);
         }

@@ -9,5 +9,14 @@
   <string name="training_type_skating_name">Rolki</string>
   <string name="training_type_walking_name">Chodzenie</string>
   <string name="training_type_cycling_name">Kolarstwo</string>
-  <string name="training_type_hiking_name">Piesze wędrówki</string>
+  <string name="training_type_hiking_name">Wspinaczka górska</string>
+  <string name="training_type_all_name">Wszystko</string>
+  <string-array name="training_type_array">
+    <item>Wszystko</item>
+    <item>Bieganie</item>
+    <item>Rolki</item>
+    <item>Chodzenie</item>
+    <item>Kolarstwo</item>
+    <item>Wspinaczka górska</item>
+  </string-array>
 </resources>

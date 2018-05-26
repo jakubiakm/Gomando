@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/application_background_color">
+  <Spinner
+      android:id="@+id/training_type_spinner"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content" />
+  <TextView
+    android:text="Dystans (w kilometrach)"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/training_statistics_content"
+    android:layout_marginLeft="10dp"/>
+</LinearLayout>

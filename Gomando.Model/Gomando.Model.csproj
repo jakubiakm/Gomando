@@ -62,6 +62,7 @@
     <Compile Include="Models\IBusinessEntity.cs" />
     <Compile Include="Models\Localization.cs" />
     <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\TrainingTypeStatistic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

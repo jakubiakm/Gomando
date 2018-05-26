@@ -40,9 +40,6 @@ namespace Gomando.Activities
             {
                 
                 case Resource.Id.action_preferences:
-                    //FragmentTransaction transcation = FragmentManager.BeginTransaction();
-                    //Dialogclass signup = new Dialogclass();
-                    //signup.Show(transcation, "Dialog Fragment");
                     PreferenceFragment pref = new PrefsFragment(this);
                     FragmentTransaction transaction = FragmentManager.BeginTransaction();
                     transaction.Add(Android.Resource.Id.Content, pref, "preferences");
@@ -98,7 +95,7 @@ namespace Gomando.Activities
             StartActivityForResult(addManualTraining, 0);
         }
 
-        // Handler for the item click event:
+
         void OnItemClick(object sender, int position)
         {
             int photoNum = position + 1;

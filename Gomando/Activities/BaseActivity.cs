@@ -26,14 +26,12 @@ namespace Gomando.Activities
 
         //Auth0 authorization properties
         internal Auth0Client client;
-        internal AuthorizeState authorizeState;
+        internal AuthorizeState authorizeState { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            GetLocationPermission();
             SetContentView(Resource.Layout.navigation_drawer_base_layout);
-            //SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_navigation_drawer);
             mToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             mDrawer = FindViewById<DrawerLayout>(Resource.Id.navigation_drawer_layout);
             mNavigationView = FindViewById<NavigationView>(Resource.Id.navigation_view);
@@ -44,7 +42,7 @@ namespace Gomando.Activities
         private async void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
             e.MenuItem.SetChecked(true);
-           
+
             mDrawer.CloseDrawers();
             switch (e.MenuItem.ItemId)
             {
@@ -74,20 +72,12 @@ namespace Gomando.Activities
                     intent.AddFlags(ActivityFlags.NoHistory);
                     StartActivity(intent);
                     break;
-
+                case (Resource.Id.menu_navigation_statistics):
+                    var statisticsIntent = new Intent(this, typeof(StatisticsActivity))
+                    .SetFlags(ActivityFlags.ReorderToFront);
+                    StartActivity(statisticsIntent);
+                    break;
             }
-        }
-
-        void GetLocationPermission()
-        {
-            if ((int)Build.VERSION.SdkInt < 23)
-                return;
-            const string permission = Manifest.Permission.AccessFineLocation;
-            if (CheckSelfPermission(permission) == (int)Permission.Granted)
-            {
-                return;
-            }
-            RequestPermissions(PermissionsLocation, RequestLocationId);
         }
     }
 }
