@@ -7,6 +7,7 @@ using Android.Graphics;
 using Android.Locations;
 using Android.Views;
 using Gomando.Logic;
+using Gomando.Logic.Helpers;
 using Gomando.Model.Enums;
 using Gomando.Model.Models;
 namespace Gomando.Helpers

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gomando.Repository", "Goman
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gomando.Model", "Gomando.Model\Gomando.Model.csproj", "{FF2CE64D-6391-4129-8FAB-0E67E6939CF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gomando.Tests", "Gomando.Tests\Gomando.Tests.csproj", "{EDBC0DDF-5797-4F14-9AA4-90FDD01BFC64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{FF2CE64D-6391-4129-8FAB-0E67E6939CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF2CE64D-6391-4129-8FAB-0E67E6939CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF2CE64D-6391-4129-8FAB-0E67E6939CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBC0DDF-5797-4F14-9AA4-90FDD01BFC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBC0DDF-5797-4F14-9AA4-90FDD01BFC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBC0DDF-5797-4F14-9AA4-90FDD01BFC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBC0DDF-5797-4F14-9AA4-90FDD01BFC64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

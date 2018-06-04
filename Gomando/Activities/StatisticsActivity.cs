@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Gomando.Helpers;
+using Gomando.Logic.Helpers;
 using Gomando.Logic;
 using Gomando.Model.Models;
 
