@@ -20,6 +20,8 @@ using Android.Widget;
 
 using Gomando.Logic;
 using Gomando.Model.Models;
+using Plugin.FacebookClient;
+using Plugin.FacebookClient.Abstractions;
 
 namespace Gomando.Activities
 {
@@ -30,6 +32,7 @@ namespace Gomando.Activities
 
         public FloatingActionButton EditTrainingButton { get; private set; }
         public FloatingActionButton DeleteTrainingButton { get; private set; }
+        public FloatingActionButton ShareOnFacebookButton { get; private set; }
         public TextView DistanceTextView { get; private set; }
         public TextView TimeTextView { get; private set; }
 
@@ -44,15 +47,15 @@ namespace Gomando.Activities
                 IFormatter formatter = new BinaryFormatter();
                 using (MemoryStream stream = new MemoryStream(Training.SerializedLocalizations))
                 {
-                    Localizations = formatter.Deserialize(stream) as List<List<Localization>>; 
+                    Localizations = formatter.Deserialize(stream) as List<List<Localization>>;
                 }
             }
-            foreach(var path in Localizations)
+            foreach (var path in Localizations)
             {
                 PolylineOptions options = new PolylineOptions()
                     .InvokeColor((new Color(105, 121, 176, 200).ToArgb()))
                     .InvokeWidth(20);
-                foreach(var point in path)
+                foreach (var point in path)
                 {
                     options.Add(new LatLng(point.Latitude, point.Longitude));
                     builder.Include(new LatLng(point.Latitude, point.Longitude));
@@ -72,27 +75,40 @@ namespace Gomando.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            FacebookClientManager.Initialize(this);
 
             LayoutInflater inflater = (LayoutInflater)this.GetSystemService(Context.LayoutInflaterService);
             View contentView = inflater.Inflate(Resource.Layout.training_details_layout, null, false);
             mDrawer.AddView(contentView, 0);
 
             DeleteTrainingButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsDeleteTrainingButton);
-
+            ShareOnFacebookButton = FindViewById<FloatingActionButton>(Resource.Id.trainingDetailsShareOnFacebook);
             int trainingId = Intent.GetIntExtra("TrainingId", 0);
             Training = trainingDetailsLogic.GetTraining(trainingId);
 
             DeleteTrainingButton.Click += DeleteTrainingButton_Click;
+            ShareOnFacebookButton.Click += ShareOnFacebookButton_Click;
 
             var mapFragment = FragmentManager.FindFragmentById(Resource.Id.fragment_training_map) as MapFragment;
             mapFragment.GetMapAsync(this);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        {
+            base.OnActivityResult(requestCode, resultCode, intent);
+            FacebookClientManager.OnActivityResult(requestCode, resultCode, intent);
+        }
+
+        private async void ShareOnFacebookButton_Click(object sender, EventArgs e)
+        {
+            await CrossFacebookClient.Current.LoginAsync(new string[] { "email", "user_posts" });
         }
 
         private void DeleteTrainingButton_Click(object sender, EventArgs e)
         {
             var builder = new AlertDialog.Builder(this);
             builder.SetMessage("Czy na pewno chcesz usunąć trening?");
-            builder.SetPositiveButton("Tak", (s, ew) => 
+            builder.SetPositiveButton("Tak", (s, ew) =>
             {
                 trainingDetailsLogic.DeleteTraining(Training.Id);
                 Finish();

@@ -73,7 +73,6 @@ namespace Gomando.Logic
                     trainingTypeStatistics.AverageTempo = trainingTypeStatistics.AllTime / 60 / trainingTypeStatistics.AllDistance;
                     trainingTypeStatistics.AverageVelocity = trainingTypeStatistics.AllDistance / ((double)trainingTypeStatistics.AllTime / 60 / 60);
                 }
-
             }
             return trainingTypeStatistics;
         }

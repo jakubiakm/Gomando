@@ -19,4 +19,8 @@
     <item>Kolarstwo</item>
     <item>Wspinaczka górska</item>
   </string-array>
+
+  <string name="facebook_app_name">MyFacebookAppName</string>
+  <string name="facebook_app_id">608195696207729</string>
+  <string name="fb_login_protocol_scheme">fb608195696207729</string>
 </resources>

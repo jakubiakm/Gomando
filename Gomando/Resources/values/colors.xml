@@ -12,12 +12,13 @@
   <color name="training_history_card_color">#C8D8E6</color>
   <color name="training_history_text_view_color">#8196A9</color>
 
+  <color name="share_facebook_button_color">#3B5998</color>
   <color name="add_training_button_color">#3E9F75</color>
   <color name="save_training_button_color">#B99449</color>
   <color name="delete_training_button_color">#F44437</color>
   <color name="edit_training_button_text_color">#000000</color>
   <color name="edit_training_button_color">#7986CB</color>
-
+  
   <color name="sliding_drawer_training_background_color">#C6000000</color>
   <color name="sliding_drawer_handle_button_color">#6979B0</color>
   <color name="start_training_button_color">#3E9F75</color>
